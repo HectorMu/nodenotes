@@ -40,7 +40,7 @@ let options ={
     password: process.env.DB_PASSWORD ,
     database:process.env.DB_DATABASE,
 };
-
+app.use(cookieParser());
 app.use(session({
     secret:"secret",
     resave:false,
