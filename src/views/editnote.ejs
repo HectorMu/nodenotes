@@ -1,0 +1,55 @@
+<%-include('index_partials/header.ejs');-%>
+<div class="row " style="margin-top: 80px;">
+    <div class="col col-lg-2 col-md-2 col-sm-2 col-3 ml-2">
+        <a id="backto" href="/mynotes" class="btn btn-block  ml-2 justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 22px;" >
+            <i class="fas fa-arrow-left"></i> Back to notes
+        </a>
+    </div>
+    <div class="col col-lg-8">
+        <h1 id="headeredit" class="bg-dark text-white  pt-2 pb-2 text-center " style="border-radius: 10px;"> Edit note: <%=notes.title%></h1> 
+        
+    <section id="editnote">
+            <div class="row row-cols-lg-8 row-cols-md-8 row-cols-sm-8">       
+                <div class="col">
+                    <form action="/editnote/<%=notes.idnote%>" method="post">
+                        <div class="form-group">
+                            <input type="text" value="<%=notes.title%>" name="title" placeholder="Note title" class="form-control">
+                        </div>  
+                        <div class="form-group">
+                            <label for="content">Note content:</label>
+                            <textarea class="form-control" value="<%=notes.content%>" name="content" id="content " cols="30" rows="8"><%=notes.content%></textarea>
+                        </div> 
+                        <div class="form-group">
+                            <label for="date">Created at:</label>
+                            <input  id="date"type="date" value="<%=notes.createdat%>"name="createdat" placeholder="Date"  class="form-control">
+                        </div>   
+                        <button type="submit" class="btn btn-outline-dark btn-block">Save note</button>  
+                        <a href="/mynotes" class="btn btn-outline-dark btn-block mb-5">Cancel</a>                      
+                    </form>                
+                                                
+                </div>  
+            </section>
+    </div>
+</div>
+<script>
+      window.sr = ScrollReveal();
+
+sr.reveal('#editnote',{
+    duration: 2000,
+    origin: 'bottom',
+    distance: '300px'
+});
+sr.reveal('#headeredit',{
+    duration: 2000,
+    origin: 'top',
+    distance: '300px'
+});
+sr.reveal('#backto',{
+    duration: 2000,
+    origin: 'left',
+    distance: '20px'
+});
+</script>
+
+
+<%-include('index_partials/footer.ejs');-%>

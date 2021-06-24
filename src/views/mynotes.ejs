@@ -1,0 +1,121 @@
+<%-include('index_partials/header.ejs');-%>
+
+<div class="row " style="margin-top: 80px;">
+    <div class="col col-lg-2 col-md-2 col-xl-2  ml-2">
+       <%if(!notes.length==0){%>
+        <button id="newnote" type="button" class="btn btn-block justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 22px;" data-toggle="modal" data-target="#addnote">
+            <i class="fas fa-plus mr-2" ></i> New note
+        </button>
+        <div class="mt-5">
+            <% if(error_msg.length>0){%>
+                <%-include('warnings/alert.ejs');-%>
+              <%}%>
+              <% if(success_msg.length>0){%>
+                <%-include('warnings/success.ejs');-%>
+              <%}%>
+        </div>
+    <%}%>
+    </div>
+    <div class="col col-lg-8">
+        <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 text-center " style="border-radius: 10px;"> All my notes</h1> 
+        <%if(!notes.length==0){%>
+        <form id="search" action="/notesearch/" class="mt-2  mb-2  justify-content-center" method="post">
+            <div class="input-group ">
+                <input name="search" class="form-control "  placeholder="Search note by title">
+                <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-outline-dark "><i class="fas fa-search"></i></button>
+                </div>
+            </div>   
+        </form>  
+    <%}%>  
+    <section id="usernotes" class="mb-5">
+        <%if(notes.length>0){%>
+            <div class="row row-cols-lg-3 row-cols-xl-3 row-cols-md-1 row-cols-sm-1">
+                    <% for (var i = 0;  i< notes.length; i++){%>
+                        <div class="col mt-2">
+                            <div class="card  border-dark h-100 " style="width: 100%;">
+                                <div class="card-header bg-dark text-white text-center">
+                                    <strong><%=notes[i].title%></strong>
+                                </div>
+                                <div class="card-body">
+                                  <p class="card-text text-justify"><%=notes[i].content%></p>
+                                  <small>Created at: <%=notes[i].createdat%></small>
+                                  <a href="/editnote/<%=notes[i].idnote%>" class="btn mt-3 btn-sm btn-outline-dark btn-block"><i class="fas fa-pen mr-3"></i>Edit</a>
+                                  <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-danger btn-block"><i class="fas fa-trash mr-3"></i>Delete</button>
+                                </div>
+                              </div>    
+                        </div>
+                        <%}%>                        
+        </div>  
+    </section>
+    <%}else{%>
+            <div id="nonotes">
+                <h1 class="text-center mt-5">You dont have any notes yet.</h1>
+                <button type="button" class="btn btn-block   justify-content-center  btn-outline-dark  btn-lg" style="font-size: 40px; font-weight: bold; padding-bottom: 22px;" data-toggle="modal" data-target="#addnote">
+                    <i class="fas fa-plus mr-2" ></i> ¡Write my first note!
+                </button>
+            </div>
+           
+           <% }%>
+    </div>
+</div>
+<% for (var i = 0;  i< notes.length; i++){%>
+    <!--Delete note modal-->
+    <div>
+      <div class="container-fluid">
+          <div id="deletenote<%= notes[i].idnote %>" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content ">
+                  <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-white" style="font-weight: bold; font-size: 34px;">¿Delete note '<%= notes[i].title %>'?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                    <!--<a href="/users" class="close" >
+                      <span aria-hidden="true">&times;</span>
+                  </a>-->
+                  </div>
+                  <div class="modal-body">
+                          <a href="/deletenote/<%= notes[i].idnote %>" class="btn btn-outline-danger  btn-block" >Delete</a>
+                          <button type="button" data-dismiss="modal" class="btn btn-outline-dark btn-block">Cancel</button>                      
+                      </form>                
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+  <!--/Delete note modal-->
+  <%}%>  
+  <link rel="stylesheet" type="text/css" href="/footerstyle.css">
+<script>
+window.sr = ScrollReveal();
+sr.reveal('#nonotes',{
+    duration: 2000,
+    origin: 'bottom',
+    distance: '300px'
+});
+sr.reveal('.card',{
+    duration: 2000,
+    origin: 'bottom',
+    distance: '300px'
+});
+sr.reveal('#headernotes',{
+    duration: 2000,
+    origin: 'top',
+    distance: '150px'
+});
+sr.reveal('#search',{
+    duration: 2000,
+    origin: 'top',
+    distance: '400px'
+});
+sr.reveal('#newnote',{
+    duration: 2000,
+    origin: 'left',
+    distance: '10px'
+});
+
+</script>
+<%-include('index_partials/footer.ejs');-%>
+<%-include('notesControls/addmodal.ejs');-%>

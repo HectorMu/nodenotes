@@ -1,0 +1,86 @@
+body{
+    font-family: 'Comfortaa', cursive;
+}
+html{
+    scroll-behavior: smooth;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.navbar-brand{
+    font-family: 'Comfortaa', cursive;
+
+    font-size: 25px;
+}
+.navbar-nav .nav-item a{
+    font-family: 'Comfortaa', cursive;
+    font-size: 17px;
+}
+
+#testimonial{
+    background-color: whitesmoke; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#contact{
+    background-color: whitesmoke;
+}
+.header-content-left img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.header-content-left img{
+    transform: scale(1.0);
+    transition: 0.5s;
+}
+#col-content-right{
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+#howtostart .card:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+#howtostart .card{
+    transform: scale(1.0);
+    transition: 0.5s;
+}
+.nav-link:hover{
+    color: white;
+    font-weight: bolder;
+    border-bottom:groove;
+    border-spacing: 5px;
+    border-width: thin;
+    border-collapse: separate;
+  
+}
+
+#welcome{
+    margin-top: 70px;
+    font-weight: bold;
+    font-size: 55px;
+}
+
+#profile-card-header{
+    font-weight: bold;
+    font-size: 30px;
+}
+#profile-card-content{
+    font-weight: bold;
+    font-size: 17px;
+}
+#profile-card-content li:hover{
+    background-color:whitesmoke;
+}
+#usernotes .col:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+#usernotes .col{
+    transform: scale(1.0);
+    transition: 0.5s;
+}

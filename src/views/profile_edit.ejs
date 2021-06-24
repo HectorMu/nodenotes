@@ -1,0 +1,147 @@
+<%- include('index_partials/header.ejs')-%>
+<div  id="welcome" class="h1 text-center  bg-light pt-3 pb-3" >Edit Profile</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="profile-card" class="card mb-5" style="width: 100%;">
+                <ul class="list-group list-group-flush">
+                  <li id="profile-card-header" class="list-group-item bg-dark text-white text-center">My Profile</li>
+                  <div id="profile-card-content" class="text-center">
+                    <form action="/editprofile" method="POST">
+                      <li class="list-group-item border-0">Fullname: </li>
+                      <li class="list-group-item pt-0">
+                      <li class="list-group-item" ><input name="firstname" value="<%=user.firstname%>" type="text" class="form-control"></li>
+                      <li class="list-group-item" ><input name="lastname" value="<%=user.lastname%>" type="text" class="form-control"></li>
+                      <li class="list-group-item border-0">Email: </li>
+                      <li class="list-group-item" ><input name="email" value="<%=user.email%>" type="text" class="form-control"></li>
+                  
+                  </div> 
+                </ul>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-outline-dark btn-block">
+                    Save Changes
+                    </button>
+                    <a href="/profile" class="btn btn-outline-danger btn-block">
+                        Cancel
+                        </a>
+                    </form>
+                    
+                </div>
+              </div>
+        </div>  
+        <div id="user-controls" class="col">
+          <%if(user.privileges == "Admin"){%>
+            <h1 class=" text-center bg-dark text-white pt-2 pb-2">Current admin profile</h1>
+            <a href="/users" class=" mt-2 btn mb-5 btn-outline-dark btn-block">
+              See users list</a>
+          <%}%>
+          <h1 class=" text-center bg-dark text-white pt-2 pb-2">Security</h1> 
+              <button  type="button" data-toggle="modal" data-target="#changepass" class=" mt-2 btn btn-outline-dark btn-block">
+                Change Password</button>    
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div id="changepass" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content ">
+            <div class="modal-header bg-dark">
+              <h5 class="modal-title text-white" style="font-weight: bold; font-size: 34px;">Change password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="text-white">&times;</span>
+              </button>
+              <!--<a href="/users" class="close" >
+                <span aria-hidden="true">&times;</span>
+            </a>-->
+            </div>
+            <div class="modal-body">
+                <form action="/changepass" method="post">
+                    <div class="form-group">
+                        <input type="password" name="oldpass" name="oldpass" placeholder="Actual password" class="form-control">
+                    </div> 
+                    <div class="form-group">
+                        <input type="password" id="newpass" name="newpass" placeholder="New password" class="form-control">
+                    </div>  
+                    <small><p id="res"></p></small>
+                    <div class="form-group">
+                        <input type="password" id="confirm" name="confirm" placeholder="Confirm" class="form-control">
+                    </div>   
+                    <small><p id="match"></p></small>
+                    <button id="savepass" type="submit" class="btn btn-outline-dark btn-block">Change password</button>  
+                    <button type="button" data-dismiss="modal" class="btn btn-outline-dark btn-block">Cancel</button>                      
+                </form>                
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+<script>
+window.sr = ScrollReveal();
+sr.reveal('#welcome',{
+    duration: 1000,
+    origin: 'top',
+    distance:'100px'
+});
+sr.reveal('#profile-card',{
+    duration: 1000,
+    origin: 'left',
+    distance:'30px'
+});
+
+sr.reveal('#user-controls',{
+    duration: 1000,
+    origin: 'bottom',
+    distance:'100px'
+});
+</script>
+<script>
+    //MATCH MESSAGE
+ const matchMessage = document.getElementById('match')
+ //LENGHT MESSAGE
+ const lengthMessage = document.getElementById('res')
+ const txtPass = document.getElementById("newpass")
+ const txtConfirm = document.getElementById("confirm")
+ const btnChange = document.getElementById('savepass')
+            //VALIDATE PASSWORD LENGTH
+             txtPass.addEventListener("keyup", function(){
+                 if(txtPass.value.length<8){
+                     lengthMessage.innerHTML ="Password must be 8 caracters length minimun"
+                     btnChange.disabled = true
+                 }
+                 if(txtPass.value.length >=8){
+                     lengthMessage.innerHTML =""
+                     btnChange.disabled = false                    
+                 }
+                 if(txtPass.value != txtConfirm.value){
+                   matchMessage.innerHTML ="Passwords do not match"
+                   btnChange.disabled = true
+               }
+               if(txtPass.value == txtConfirm.value){
+                   matchMessage.innerHTML =""
+                   btnChange.disabled = false
+               }
+                 txtConfirm.addEventListener("keyup", function(){
+                   if(txtPass.value.length<8){
+                       lengthMessage.innerHTML ="Password must be 8 caracters length minimun"
+                       btnChange.disabled = true
+                   }
+                   if(txtPass.value.length >=8){
+                       lengthMessage.innerHTML =""
+                       btnChange.disabled = false
+                       //VALIDATE PASSWORD MATCHS                  
+                   }
+                   if(txtPass.value != txtConfirm.value){
+                       matchMessage.innerHTML ="Passwords do not match"
+                       btnChange.disabled = true
+                   }
+                   if(txtPass.value == txtConfirm.value){
+                       matchMessage.innerHTML =""
+                       btnChange.disabled = false
+                   }
+                  
+               })    
+         })
+</script>
+<%-include('index_partials/footer.ejs');-%>

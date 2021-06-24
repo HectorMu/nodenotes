@@ -1,0 +1,32 @@
+<%- include('index_partials/header.ejs')-%>
+<div class="container" style="margin-top: 100px;">
+    <% if(error_msg.length>0){%>
+        <%-include('warnings/alert.ejs');-%>
+      <%}%>
+    <div class="row">
+        <div class="col">
+            <div id="login-card" class="card">
+                <h5 class="card-header bg-dark text-center text-white" style="font-weight: bold; font-size: 40px;">Log In</h5>
+                <div class="card-body">
+                 <form action="/login" method="POST">
+                    <input class="form-control mb-2" type="email" placeholder="Email" name="email" id="email" required>
+                    <input class="form-control" type="password" placeholder="Password" name="pass" id="pass" required>
+                <button type="submit" class="btn mt-4 btn-outline-dark btn-block">Send</button>
+                </form>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="/footerstyle.css">
+<script>
+window.sr = ScrollReveal();
+sr.reveal('#login-card',{
+    duration: 1000,
+    origin: 'bottom',
+    distance:'100px'
+});
+
+</script>
+
+<%-include('index_partials/footer.ejs');-%>
