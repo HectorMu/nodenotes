@@ -3,6 +3,9 @@ const path = require('path')
 const {promisify } = require('util')
 
 const dotenv = require ('dotenv')
+dotenv.config({ 
+    path: path.resolve(__dirname, './env/.env') 
+ })
 const Dbpool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER ,
