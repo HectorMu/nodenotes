@@ -1,7 +1,7 @@
 <%-include('index_partials/header.ejs');-%>
 
 <div class="row " style="margin-top: 80px;">
-    <div class="col col-10 col-sm-12 col-lg-2 col-md-2 col-xl-2  ">
+    <div class="col col-12 col-sm-12 col-lg-2 col-md-2 col-xl-2  ">
        <%if(!notes.length==0){%>
         <div class="container-fluid">
             <button id="newnote" type="button" class="btn  btn-block justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
@@ -9,14 +9,19 @@
             </button>
         </div>
         
-        <div class="mt-5">
+        <div class="container-fluid mt-2">
             <% if(error_msg.length>0){%>
-                <%-include('warnings/alert.ejs');-%>
-              <%}%>
-              <% if(success_msg.length>0){%>
-                <%-include('warnings/success.ejs');-%>
-              <%}%>
+            <div class="mt-5">
+                
+                    <%-include('warnings/alert.ejs');-%>
+                  <%}%>
+                  <% if(success_msg.length>0){%>
+                    <%-include('warnings/success.ejs');-%>
+                 
+            </div>
+            <%}%>
         </div>
+        
     <%}%>
     </div>
     <div class="col col-sm-12 col-12   col-lg-8 col-md-8" >
@@ -55,12 +60,15 @@
         </div>  
     </section>
     <%}else{%>
+        <div class="container-fluid">
             <div id="nonotes">
                 <h1 class="text-center mt-5">You dont have any notes yet.</h1>
                 <button type="button" class="btn btn-block   justify-content-center  btn-outline-dark  btn-lg" style="font-size: 40px; font-weight: bold; padding-bottom: 22px;" data-toggle="modal" data-target="#addnote">
                     <i class="fas fa-plus mr-2" ></i> ¡Write my first note!
                 </button>
             </div>
+        </div>
+            
            
            <% }%>
     </div>
