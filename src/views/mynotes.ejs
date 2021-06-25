@@ -9,17 +9,16 @@
             </button>
         </div>
         
-        <div class="container-fluid mt-2">
-            <% if(error_msg.length>0){%>
-            <div class="mt-5">
-                
+        <div class="container mt-2">
+            <div class="mt-2">
+                <% if(error_msg.length>0){%>
                     <%-include('warnings/alert.ejs');-%>
                   <%}%>
                   <% if(success_msg.length>0){%>
                     <%-include('warnings/success.ejs');-%>
-                 
+                <%}%>
             </div>
-            <%}%>
+           
         </div>
         
     <%}%>
