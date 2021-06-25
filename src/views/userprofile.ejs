@@ -17,32 +17,31 @@
                     <li class="list-group-item pt-0"><%=user.firstname%> <%=user.lastname%></li>
                     <li class="list-group-item border-0">Email: </li>
                     <li class="list-group-item pt-0"><%=user.email%></li>
-                    <li class="list-group-item border-0">Notes created: </li>
+                    <li class="list-group-item border-0">Created notes: </li>
                     <li class="list-group-item pt-0"><%=notes[0].num%></li>
                   </div> 
                 </ul>
-                <div class="card-footer">
-                  <a href="/editprofile/<%=user.iduser%>" class="btn btn-outline-dark btn-block">
-                    Edit Profile
-                    </a>
-                </div>
               </div>
         </div>  
         <div id="user-controls" class="col">
           <%if(user.privileges == "Admin"){%>
             <h1 class=" text-center bg-dark text-white pt-2 pb-2">Current admin profile</h1>
             <a href="/users" class=" mt-2 btn mb-5 btn-outline-dark btn-block">
-              See users list</a>
+              <i class="fas fa-users"></i> See users list</a>
           <%}%>
           <h1 class=" text-center bg-dark text-white pt-2 pb-2">Options</h1>
             <a  href="/mynotes" class="mt-2 mb-2 btn btn-outline-dark btn-block">
-              Go to my notes</a>
-              <a href="/logout" class=" mt-2 btn btn-outline-dark btn-block">
-              Log Out</a>     
+              <i class="far fa-sticky-note"></i> Go to my notes</a>
+              <a href="/editprofile/<%=user.iduser%>" class="btn  btn-outline-dark btn-block">
+                <i class="fas fa-cog"></i> Profile settings
+                </a>  
+              <a href="/logout" class=" mt-2 mb-5 btn btn-outline-dark btn-block">
+                <i class="fas fa-sign-out-alt"></i> Log Out</a>   
+             
         </div>
     </div>
 </div>
-<link rel="stylesheet" type="text/css" href="/footerstyle.css">
+
 <script>
 window.sr = ScrollReveal();
 sr.reveal('#welcome',{
