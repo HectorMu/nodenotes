@@ -2,7 +2,7 @@
 <div  id="welcome" class="h1 text-center  bg-light pt-3 pb-3" >Edit Profile</div>
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col col-12 col-sm-12 col-md-6">
             <div id="profile-card" class="card mb-5" style="width: 100%;">
                 <ul class="list-group list-group-flush">
                   <li id="profile-card-header" class="list-group-item bg-dark text-white text-center">My Profile</li>
@@ -29,7 +29,7 @@
                 </div>
               </div>
         </div>  
-        <div id="user-controls" class="col">
+        <div id="user-controls" class=" mb-5 col-12 col-sm-12 col-md-6">
           <%if(user.privileges == "Admin"){%>
             <h1 class=" text-center bg-dark text-white pt-2 pb-2">Current admin profile</h1>
             <a href="/users" class=" mt-2 btn mb-5 btn-outline-dark btn-block">
