@@ -1,11 +1,14 @@
 <%-include('index_partials/header.ejs');-%>
 
 <div class="row " style="margin-top: 80px;">
-    <div class="col col-10 col-sm-6 col-lg-2 col-md-2 col-xl-2  ml-4">
+    <div class="col col-10 col-sm-12 col-lg-2 col-md-2 col-xl-2  ">
        <%if(!notes.length==0){%>
-        <button id="newnote" type="button" class="btn btn-block justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 22px;" data-toggle="modal" data-target="#addnote">
-            <i class="fas fa-plus mr-2" ></i> New note
-        </button>
+        <div class="container-fluid">
+            <button id="newnote" type="button" class="btn  btn-block justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
+                <i class="fas fa-plus mr-2" ></i> New note
+            </button>
+        </div>
+        
         <div class="mt-5">
             <% if(error_msg.length>0){%>
                 <%-include('warnings/alert.ejs');-%>
@@ -16,7 +19,7 @@
         </div>
     <%}%>
     </div>
-    <div class="col col-sm-5 col-10 ml-4 col-lg-8 col-md-8">
+    <div class="col col-sm-12 col-12   col-lg-8 col-md-8" >
         <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 text-center " style="border-radius: 10px;"> All my notes</h1> 
         <%if(!notes.length==0){%>
         <form id="search" action="/notesearch/" class="mt-2  mb-2  justify-content-center" method="post">
@@ -30,20 +33,23 @@
     <%}%>  
     <section id="usernotes" class="mb-5">
         <%if(notes.length>0){%>
-            <div class="row row-cols-lg-3 row-cols-xl-3 row-cols-md-1 row-cols-sm-2">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-md-1 row-cols-sm-2">
                     <% for (var i = 0;  i< notes.length; i++){%>
                         <div class="col mt-2">
-                            <div class="card  border-dark h-100 " style="width: 100%;">
-                                <div class="card-header bg-dark text-white text-center">
-                                    <strong><%=notes[i].title%></strong>
-                                </div>
-                                <div class="card-body">
-                                  <p class="card-text text-justify"><%=notes[i].content%></p>
-                                  <small>Created at: <%=notes[i].createdat%></small>
-                                  <a href="/editnote/<%=notes[i].idnote%>" class="btn mt-3 btn-sm btn-outline-dark btn-block"><i class="fas fa-pen mr-3"></i>Edit</a>
-                                  <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-danger btn-block"><i class="fas fa-trash mr-3"></i>Delete</button>
-                                </div>
-                              </div>    
+                            <div class="container">
+                                <div class="card  border-dark h-100 " style="width: 100%;">
+                                    <div class="card-header bg-dark text-white text-center">
+                                        <strong><%=notes[i].title%></strong>
+                                    </div>
+                                    <div class="card-body">
+                                      <p class="card-text text-justify"><%=notes[i].content%></p>
+                                      <small>Created at: <%=notes[i].createdat%></small>
+                                      <a href="/editnote/<%=notes[i].idnote%>" class="btn mt-3 btn-sm btn-outline-dark btn-block"><i class="fas fa-pen mr-3"></i>Edit</a>
+                                      <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-danger btn-block"><i class="fas fa-trash mr-3"></i>Delete</button>
+                                    </div>
+                                  </div>    
+                            </div>
+                           
                         </div>
                         <%}%>                        
         </div>  
