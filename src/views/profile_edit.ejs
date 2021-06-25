@@ -1,9 +1,13 @@
 <%- include('index_partials/header.ejs')-%>
 <div  id="welcome" class="h1 text-center  bg-light pt-3 pb-3" >Edit Profile</div>
+
 <div class="container">
+    <a href="/profile" class=" mt-1 mb-2 btn btn-outline-dark btn-block">
+        <i class="fas fa-arrow-left mr-2"></i>Back to profile
+        </a>
     <div class="row">
         <div class="col col-12 col-sm-12 col-md-6">
-            <div id="profile-card" class="card mb-5" style="width: 100%;">
+            <div id="profile-card" class="card mb-3" style="width: 100%;">
                 <ul class="list-group list-group-flush">
                   <li id="profile-card-header" class="list-group-item bg-dark text-white text-center">My Profile</li>
                   <div id="profile-card-content" class="text-center">
@@ -21,20 +25,13 @@
                   <button type="submit" class="btn btn-outline-dark btn-block">
                     Save Changes
                     </button>
-                    <a href="/profile" class="btn btn-outline-danger btn-block">
-                        Cancel
-                        </a>
+                    
                     </form>
                     
                 </div>
               </div>
         </div>  
         <div id="user-controls" class=" mb-5 col-12 col-sm-12 col-md-6">
-          <%if(user.privileges == "Admin"){%>
-            <h1 class=" text-center bg-dark text-white pt-2 pb-2">Current admin profile</h1>
-            <a href="/users" class=" mt-2 btn mb-5 btn-outline-dark btn-block">
-              See users list</a>
-          <%}%>
           <h1 class=" text-center bg-dark text-white pt-2 pb-2">Security</h1> 
               <button  type="button" data-toggle="modal" data-target="#changepass" class=" mt-2 btn btn-outline-dark btn-block">
                 Change Password</button>    
@@ -68,7 +65,7 @@
                     </div>   
                     <small><p id="match"></p></small>
                     <button id="savepass" type="submit" class="btn btn-outline-dark btn-block">Change password</button>  
-                    <button type="button" data-dismiss="modal" class="btn btn-outline-dark btn-block">Cancel</button>                      
+                    <button type="button" data-dismiss="modal" class="btn mb-5 btn-outline-dark btn-block">Cancel</button>                      
                 </form>                
             </div>
             </div>
