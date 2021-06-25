@@ -9,7 +9,9 @@ controller.listNotes = async (req, res)=>{
     })
 }
 controller.saveNote = async(req, res)=>{
-    const {title,content,createdat} = req.body
+    const {title,content} = req.body
+    let dateObject = new Date()
+    const createdat = (dateObject.getDate()+"/"+"0"+dateObject.getMonth()+"/"+dateObject.getFullYear())
     const fkuser = req.user.iduser
     const newNote = {
         title,
