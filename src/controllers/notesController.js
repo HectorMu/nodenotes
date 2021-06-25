@@ -33,9 +33,9 @@ controller.renderEditNote = async(req, res)=>{
 }
 controller.editNote = async(req, res)=>{
     const {idnote } = await req.params
-    const {title, content, createdat} = req.body
+    const {title, content} = req.body
     const newNote = {
-        title, content, createdat
+        title, content
     }
     await Dbpool.query("update notes set ? where idnote = ?",[newNote, idnote])
     req.flash("success_msg","Note "+title+" information edited succesfully")
