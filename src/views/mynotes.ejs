@@ -1,7 +1,7 @@
 <%-include('index_partials/header.ejs');-%>
 
 <div class="row " style="margin-top: 80px;">
-    <div class="col col-lg-2 col-md-2 col-xl-2  ml-2">
+    <div class="col col-10 col-sm-6 col-lg-2 col-md-2 col-xl-2  ml-4">
        <%if(!notes.length==0){%>
         <button id="newnote" type="button" class="btn btn-block justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 22px;" data-toggle="modal" data-target="#addnote">
             <i class="fas fa-plus mr-2" ></i> New note
@@ -16,7 +16,7 @@
         </div>
     <%}%>
     </div>
-    <div class="col col-lg-8">
+    <div class="col col-sm-5 col-10 ml-4 col-lg-8 col-md-8">
         <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 text-center " style="border-radius: 10px;"> All my notes</h1> 
         <%if(!notes.length==0){%>
         <form id="search" action="/notesearch/" class="mt-2  mb-2  justify-content-center" method="post">
@@ -30,7 +30,7 @@
     <%}%>  
     <section id="usernotes" class="mb-5">
         <%if(notes.length>0){%>
-            <div class="row row-cols-lg-3 row-cols-xl-3 row-cols-md-1 row-cols-sm-1">
+            <div class="row row-cols-lg-3 row-cols-xl-3 row-cols-md-1 row-cols-sm-2">
                     <% for (var i = 0;  i< notes.length; i++){%>
                         <div class="col mt-2">
                             <div class="card  border-dark h-100 " style="width: 100%;">
