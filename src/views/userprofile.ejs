@@ -9,7 +9,7 @@
   <%}%>
     <div class="row">
         <div class="col">
-            <div id="profile-card" class="card" style="width: 100%;">
+            <div id="profile-card" class="card " style="width: 100%;">
                 <ul class="list-group list-group-flush">
                   <li id="profile-card-header" class="list-group-item bg-dark text-white text-center">My Profile</li>
                   <div id="profile-card-content" class="text-center">
@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-
+<link rel="stylesheet" href="footerstyle.css">
 <script>
 window.sr = ScrollReveal();
 sr.reveal('#welcome',{
@@ -61,5 +61,7 @@ sr.reveal('#user-controls',{
     distance:'100px'
 });
 </script>
+<div style="margin-top: 34px;">
+  <%-include('index_partials/footer.ejs');-%>
+</div>
 
-<%-include('index_partials/footer.ejs');-%>
