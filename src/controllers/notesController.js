@@ -53,13 +53,16 @@ controller.searchNote = async(req, res)=>{
         res.redirect('/mynotes')
     }
     const notes = await Dbpool.query("select * from notes where title like ? && fkuser = ?",['%'+search+'%',iduser])
-    if(notes.length==0){
+    if(notes.length>0){
+        res.render('mynotes',{
+            notes
+        })
+    }
+    else{
         req.flash("error_msg","There isn't a note with that name")
         res.redirect('/mynotes')
     }
-    res.render('mynotes',{
-        notes
-    })
+   
 }
 
 
