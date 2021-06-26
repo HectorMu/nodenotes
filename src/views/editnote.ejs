@@ -18,7 +18,12 @@
                         <div class="form-group">
                             <label for="content">Note content:</label>
                             <textarea class="form-control" value="<%=notes.content%>" name="content" id="content " cols="30" rows="8"><%=notes.content%></textarea>
-                        </div> 
+                        </div>  
+                        <select name="importance"  value="<%=notes.importance%>" class="form-control mb-2" required>               
+                            <option value="dark">Normal</option>
+                            <option value="warning">Important</option>
+                            <option value="danger">Very Important</option>
+                          </select> 
                         <button type="submit" class="btn btn-outline-dark btn-block">Save note</button>  
                         <a href="/mynotes" class="btn btn-outline-dark btn-block mb-5">Cancel</a>                      
                     </form>                
