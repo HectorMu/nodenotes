@@ -31,6 +31,12 @@ controller.editProfile = async(req, res)=>{
     await Dbpool.query("update users set firstname = ?, lastname = ?, email = ? where iduser = ?",[newUser.firstname, newUser.lastname,newUser.email, iduser])
     res.redirect('/profile')
 }
+controller.changeStartScreen = async(req, res)=>{
+    const iduser = req.user.iduser
+    const {startscreen} = req.body
+    await Dbpool.query("update users set startscreen = ? where iduser = ?",[startscreen,iduser])
+    res.redirect('/profile')
+}
 
 controller.changePassword = async(req, res)=>{
     const iduser = req.user.iduser
