@@ -19,7 +19,13 @@
                     <div class="form-group">
                         <label for="content">Note content:</label>
                         <textarea class="form-control" name="content" id="content " cols="30" rows="8"></textarea>
-                    </div> 
+                    </div>  
+                    <label for="">Importance:</label>
+                    <select name="importance" class="form-control mb-2" required>               
+                        <option value="dark">Normal</option>
+                        <option value="warning">Important</option>
+                        <option value="danger">Very Important</option>
+                      </select> 
                     <button type="submit" class="btn btn-outline-dark btn-block">Save note</button>  
                     <button type="button" data-dismiss="modal" class="btn btn-outline-dark btn-block">Cancel</button>                      
                 </form>                
