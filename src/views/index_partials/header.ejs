@@ -59,7 +59,8 @@
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="far fa-user"></i> 
-                            <small><%=user.firstname%></small> 
+                            <% SplittedUser =  user.firstname.split(" ")%>
+                            <small><%=SplittedUser[0]%></small> 
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" href="/profile">Profile</a>
