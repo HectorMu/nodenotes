@@ -3,13 +3,58 @@ const Dbpool = require('../database')
 
 controller.listNotes = async (req, res)=>{
     const notes = await Dbpool.query("select * from notes where fkuser = ?",[req.user.iduser])
-    console.log(notes)
-    res.render('mynotes',{
-        notes
-    })
+    if(notes.length>0){
+        console.log(notes)
+        res.render('mynotes',{
+            notes, 
+        })   
+    }
+   
 }
+controller.listImportantNotes = async (req, res)=>{
+    const notes = await Dbpool.query("select * from notes where importance = 'warning' && fkuser = ?",[req.user.iduser])
+    if(notes.length>0){
+        console.log(notes) 
+        res.render('mynotes',{
+        notes, 
+    })  
+    }else{
+        req.flash("error_msg","There isn't important notes")
+        res.redirect('/mynotes')
+    }
+     
+}
+controller.listVeryImportantNotes = async (req, res)=>{
+    const notes = await Dbpool.query("select * from notes where importance = 'danger' && fkuser = ?",[req.user.iduser])
+    if(notes.length>0){
+        console.log(notes)
+        res.render('mynotes',{
+            notes, 
+        })  
+    }else{
+        req.flash("error_msg","There isn't very important notes")
+        res.redirect('/mynotes')
+    }
+     
+}
+controller.listNormalNotes = async (req, res)=>{
+    const notes = await Dbpool.query("select * from notes where importance = 'dark' && fkuser = ?",[req.user.iduser])
+    if(notes.length>0){
+        console.log(notes)
+    
+        res.render('mynotes',{
+            notes, 
+        })   
+    }else{
+        req.flash("error_msg","There isn't normal importance notes")
+        res.redirect('/mynotes')
+    }
+   
+}
+
+
 controller.saveNote = async(req, res)=>{
-    const {title,content} = req.body
+    const {title,content,importance} = req.body
     let dateObject = new Date()
     const createdat = (dateObject.getDate()+"/"+"0"+dateObject.getMonth()+"/"+dateObject.getFullYear())
     const fkuser = req.user.iduser
@@ -17,12 +62,13 @@ controller.saveNote = async(req, res)=>{
         title,
         content, 
         createdat,
-        fkuser
+        fkuser,
+        importance
     }
     const insert = Dbpool.query("insert into notes set ?",[newNote])
     req.flash("success_msg","Note added succesfully")
     res.redirect('/mynotes')
-}
+} 
 controller.renderEditNote = async(req, res)=>{
     const {idnote} = await req.params
     const notes = await Dbpool.query("Select * from notes where idnote = ?",[idnote])
@@ -33,9 +79,9 @@ controller.renderEditNote = async(req, res)=>{
 }
 controller.editNote = async(req, res)=>{
     const {idnote } = await req.params
-    const {title, content} = req.body
+    const {title, content,importance} = req.body
     const newNote = {
-        title, content
+        title, content,importance
     }
     await Dbpool.query("update notes set ? where idnote = ?",[newNote, idnote])
     req.flash("success_msg","Note "+title+" information edited succesfully")
