@@ -9,5 +9,6 @@ router.get('/profile', auth.isLoggedIn, profileController.GetNotes)
 router.get('/editprofile/:iduser',auth.isLoggedIn, profileController.renderEditProfile)
 router.post('/editprofile', auth.isLoggedIn,profileController.editProfile)
 router.post('/changepass',auth.isLoggedIn, profileController.changePassword)
+router.post('/changescreen',auth.isLoggedIn, profileController.changeStartScreen)
 
 module.exports = router
