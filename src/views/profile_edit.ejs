@@ -1,4 +1,5 @@
 <%- include('index_partials/header.ejs')-%>
+
 <div  id="welcome" class="h1 text-center  bg-light pt-3 pb-3" >Edit Profile</div>
 
 <div class="container">
@@ -34,10 +35,20 @@
         <div id="user-controls" class=" mb-5 col-12 col-sm-12 col-md-6">
           <h1 class=" text-center bg-dark text-white pt-2 pb-2">Security</h1> 
               <button  type="button" data-toggle="modal" data-target="#changepass" class=" mt-2 btn btn-outline-dark btn-block">
-                Change Password</button>    
+                Change Password</button>
+                <h1 class=" text-center mt-4 bg-dark text-white pt-2 pb-2">Preferences</h1> 
+                <div class="form-group">       
+                    <label for="Start Screen">Start Screen: <%=user.startscreen%> </label>     
+                    <button  type="button" data-toggle="modal" data-target="#changescreen" class=" mt-2 btn btn-outline-dark btn-block">
+                        Change Start Screen</button>    
+                    
+            </div>    
         </div>
+        
     </div>
 </div>
+
+<!--Change pass modal-->
 <div class="container-fluid">
     <div id="changepass" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
         <div class="modal-dialog modal-lg">
@@ -73,6 +84,38 @@
         </div>
       </div>
   </div>
+
+  <!--Change screen modal-->
+<div class="container-fluid">
+    <div id="changescreen" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content ">
+            <div class="modal-header bg-dark">
+              <h5 class="modal-title text-white" style="font-weight: bold; font-size: 34px;">Change Start Screen</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="text-white">&times;</span>
+              </button>
+              <!--<a href="/users" class="close" >
+                <span aria-hidden="true">&times;</span>
+            </a>-->
+            </div>
+            <div class="modal-body">
+                <form action="/changescreen" method="post">
+                    <label for="">Select one screen:</label>
+                    <select name="startscreen"  class="form-control mb-2" required>               
+                        <option value="mynotes">My notes</option>
+                        <option value="profile">Profile</option>
+                      </select> 
+                    <button  type="submit" class="btn btn-outline-dark btn-block">Save</button>  
+                    <button type="button" data-dismiss="modal" class="btn mb-5 btn-outline-dark btn-block">Cancel</button>                      
+                </form>                
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
   
 <script>
 window.sr = ScrollReveal();
