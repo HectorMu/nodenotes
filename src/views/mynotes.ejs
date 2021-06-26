@@ -1,5 +1,4 @@
 <%-include('index_partials/header.ejs');-%>
-
 <div class="row " style="margin-top: 80px;">
     <div class="col col-12 col-sm-12 col-lg-2 col-md-2 col-xl-2  ">
        <%if(!notes.length==0){%>
@@ -7,6 +6,17 @@
             <button id="newnote" type="button" class="btn  btn-block justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
                 <i class="fas fa-plus mr-2" ></i> New note
             </button>
+            <div class="dropdown">
+                <button class="btn btn-outline-dark btn-block mt-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
+                   <small>Sort notes by:</small> 
+                </button>
+                <div class="dropdown-menu border-0 radius-0" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item bg-dark pt-1 border-0 font-weight-bold text-white" href="/mynotes/normal">Normal Importance</a>
+                  <a class="dropdown-item bg-warning pt-1 border-0 font-weight-bold text-white" href="/mynotes/important">Important Notes</a>
+                  <a class="dropdown-item bg-danger pt-1 border-0 font-weight-bold text-white" href="/mynotes/veryimportant">Very Important Notes</a>
+                </div>
+              </div>
         </div>
         
         <div class="container mt-2">
@@ -41,8 +51,8 @@
                     <% for (var i = 0;  i< notes.length; i++){%>
                         <div class="col mt-2">
                             <div class="container">
-                                <div class="card  border-dark h-100 " style="width: 100%;">
-                                    <div class="card-header bg-dark text-white text-center">
+                                <div class="card  border-<%=notes[i].importance%> h-100 " style="width: 100%;">
+                                    <div class="card-header bg-<%=notes[i].importance%> text-white text-center">
                                         <strong><%=notes[i].title%></strong>
                                     </div>
                                     <div class="card-body">
