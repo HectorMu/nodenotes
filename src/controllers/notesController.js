@@ -3,12 +3,11 @@ const Dbpool = require('../database')
 
 controller.listNotes = async (req, res)=>{
     const notes = await Dbpool.query("select * from notes where fkuser = ?",[req.user.iduser])
-    if(notes.length>0){
+  
         console.log(notes)
         res.render('mynotes',{
             notes, 
         })   
-    }
    
 }
 controller.listImportantNotes = async (req, res)=>{
