@@ -50,8 +50,9 @@ controller.editUser = async(req, res)=>{
 
 controller.deleteUser = async(req, res)=>{
     const {iduser} = await req.params
+    await Dbpool.query("delete from notes where fkuser = ?",[iduser])
     await Dbpool.query("delete from users where iduser = ?",[iduser])
-    req.flash("success_msg","User with id "+iduser+" deleted succesfully")
+    req.flash("success_msg","User and all user notes deleted succesfully")
     res.redirect('/users')
 
 }
