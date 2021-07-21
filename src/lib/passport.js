@@ -53,7 +53,7 @@ passport.use('signup', new passportLocal({
             return done(null, newUser)
             
     }else{
-        return done(null, false,req.flash("error_msg", "Password was'nt 8 caracters length. Try again"))
+        return done(null, false,req.flash("error_msg", "Password wasn't 8 caracters length. Try again"))
     }
        
     }else{
