@@ -88,6 +88,9 @@ app.get('/profile',(req, res)=>{
 app.get('/mynotes',(req, res)=>{
     res.render('mynotes');
 })
+app.get('/recover',(req, res)=>{
+    res.render('forgotPass')
+})
 
 
 //static files (css, html, js, media resources)
