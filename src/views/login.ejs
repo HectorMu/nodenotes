@@ -3,6 +3,9 @@
     <% if(error_msg.length>0){%>
         <%-include('warnings/alert.ejs');-%>
       <%}%>
+      <% if(success_msg.length>0){%>
+        <%-include('warnings/success.ejs');-%>
+      <%}%>
     <div class="row">
         <div class="col">
             <div id="login-card" class="card">
