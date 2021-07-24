@@ -1,0 +1,83 @@
+<%- include('index_partials/header.ejs')-%>
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col">
+            <div id="resetpass-card" class="card">
+                <h5 class="card-header bg-dark text-center text-white" style="font-weight: bold; font-size: 40px;">Recover my password</h5>
+                <div class="card-body">
+                 <form action="/resetpass/<%=iduser%>/<%=token%>" method="POST">
+                    <div class="form-group">
+                        <input type="password" id="newpass" name="newpass" placeholder="New password" class="form-control">
+                    </div>  
+                    <small><p id="res"></p></small>
+                    <div class="form-group">
+                        <input type="password" id="confirm" name="confirm" placeholder="Confirm password" class="form-control">
+                    </div>   
+                    <small><p id="match"></p></small>
+                <button type="submit" id="savepass" class="btn mt-4 btn-outline-dark btn-block">Send</button>
+                </form>
+                </div>
+              </div>
+        </div>
+    </div>
+    </div>
+</div>
+<script src="js/signup-validations.js"></script>
+<script>
+    window.sr = ScrollReveal();
+    sr.reveal('#resetpass-card',{
+        duration: 1000,
+        origin: 'bottom',
+        distance:'100px'
+    });  
+    </script>
+    <script>
+        //MATCH MESSAGE
+     const matchMessage = document.getElementById('match')
+     //LENGHT MESSAGE
+     const lengthMessage = document.getElementById('res')
+     const txtPass = document.getElementById("newpass")
+     const txtConfirm = document.getElementById("confirm")
+     const btnChange = document.getElementById('savepass')
+                //VALIDATE PASSWORD LENGTH
+                 txtPass.addEventListener("keyup", function(){
+                     if(txtPass.value.length<8){
+                         lengthMessage.innerHTML ="Password must be 8 caracters length minimun"
+                         btnChange.disabled = true
+                     }
+                     if(txtPass.value.length >=8){
+                         lengthMessage.innerHTML =""
+                         btnChange.disabled = false                    
+                     }
+                     if(txtPass.value != txtConfirm.value){
+                       matchMessage.innerHTML ="Passwords do not match"
+                       btnChange.disabled = true
+                   }
+                   if(txtPass.value == txtConfirm.value){
+                       matchMessage.innerHTML =""
+                       btnChange.disabled = false
+                   }
+                     txtConfirm.addEventListener("keyup", function(){
+                       if(txtPass.value.length<8){
+                           lengthMessage.innerHTML ="Password must be 8 caracters length minimun"
+                           btnChange.disabled = true
+                       }
+                       if(txtPass.value.length >=8){
+                           lengthMessage.innerHTML =""
+                           btnChange.disabled = false
+                           //VALIDATE PASSWORD MATCHS                  
+                       }
+                       if(txtPass.value != txtConfirm.value){
+                           matchMessage.innerHTML ="Passwords do not match"
+                           btnChange.disabled = true
+                       }
+                       if(txtPass.value == txtConfirm.value){
+                           matchMessage.innerHTML =""
+                           btnChange.disabled = false
+                       }
+                      
+                   })    
+             })
+    </script>
+<link rel="stylesheet" type="text/css" href="/footerstyle.css">
+<%- include('index_partials/footer.ejs')-%>
