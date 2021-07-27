@@ -12,6 +12,6 @@ router.get('/logout', authController.logout)
 
 // routes for recover user password
 router.post('/recover', authController.SendRecoverEmail)
-router.get('/resetpass/:iduser/:token', authController.RenderRecoverView)
-router.post('/resetpass/:iduser/:token', authController.ChangeRecoverPass)
+router.get('/resetpass/:token', authController.RenderRecoverView)
+router.post('/resetpass/:token', authController.ChangeRecoverPass)
 module.exports = router
