@@ -11,7 +11,7 @@ router.get('/mynotes/veryimportant', auth.isLoggedIn, notesController.listVeryIm
 router.post('/savenote', auth.isLoggedIn, notesController.saveNote)
 router.get('/editnote/:idnote',auth.isLoggedIn,  notesController.renderEditNote)
 router.post('/editnote/:idnote', auth.isLoggedIn, notesController.editNote)
-router.get('/deletenote/:idnote', auth.isLoggedIn, notesController.deleteNote)
+router.get('/deletenote/:idnote/:title', auth.isLoggedIn, notesController.deleteNote)
 router.post('/notesearch/', auth.isLoggedIn, notesController.searchNote)
  
 module.exports = router
