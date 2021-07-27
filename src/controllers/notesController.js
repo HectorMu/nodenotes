@@ -87,9 +87,9 @@ controller.editNote = async(req, res)=>{
     res.redirect('/mynotes')
 }
 controller.deleteNote = async(req, res)=>{
-    const {idnote} = await req.params
+    const {idnote, title} = await req.params
     await Dbpool.query("delete from notes where idnote = ?",[idnote])
-    req.flash("success_msg","Note with id "+idnote+" deleted succesfully")
+    req.flash("success_msg",`Note "${title}" deleted succesfully`)
     res.redirect('/mynotes')
 
 }
