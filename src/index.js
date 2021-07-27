@@ -12,6 +12,11 @@ const passport = require('passport')
 const passportLocal = require('passport-local').Strategy
 require("./lib/passport")
 const Dbpool = require('./database')
+
+
+const app = express()
+app.set('view engine','ejs')
+app.set('views',path.join(__dirname,'views'))
 app.enable('trust proxy')
 app.use (function (req, res, next) {
     if (req.secure) {
@@ -22,11 +27,6 @@ app.use (function (req, res, next) {
             res.redirect('https://' + req.headers.host + req.url);
     }
 });
-
-const app = express()
-app.set('view engine','ejs')
-app.set('views',path.join(__dirname,'views'))
-
 //dotenv path config
 dotenv.config({ 
     path: path.resolve(__dirname, './env/.env') 
