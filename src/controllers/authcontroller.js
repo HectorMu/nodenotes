@@ -52,13 +52,14 @@ authController.SendRecoverEmail = async(req, res)=>{
 }
 //this controller render the recover view, need to receive the req.params to get it on the form action
 authController.RenderRecoverView = (req, res)=>{
-    const {token, iduser} = req.params
-    console.log(iduser)
+    const {token} = req.params
+    const Freetoken = token.split('ñ')[0];
+    const FreeId = token.split('ñ')[1];
     try {
-        const payload = jwt.verify(token,process.env.TOKEN_SECRET)
+        const payload = jwt.verify(Freetoken,process.env.TOKEN_SECRET)
         res.render('resetpass',{
             //here we pass the req.params to recover view
-            token, iduser
+        token
         })
     } catch (error) {
         req.flash("error_msg", "Invalid provided token, the token has expired")    
@@ -68,15 +69,17 @@ authController.RenderRecoverView = (req, res)=>{
  //this controller change the password on post, first verify the token, then get if there is an user with that id, and
  //finishing updating the user password
  authController.ChangeRecoverPass = async (req, res)=>{
-    const {token, iduser} = req.params
+    const {token} = req.params
+    const Freetoken = token.split('ñ')[0];
+    const FreeId = token.split('ñ')[1];
     const {newpass} = req.body
     try {
-        const payload = jwt.verify(token,process.env.TOKEN_SECRET)
-        const user = await Dbpool.query("select * from users where iduser =  ?",[iduser])
+        const payload = jwt.verify(Freetoken,process.env.TOKEN_SECRET)
+        const user = await Dbpool.query("select * from users where iduser =  ?",[FreeId])
         console.log(user)
         if(user.length>0){
             const NewPassHash = await helpers.encryptPass(newpass)
-            await Dbpool.query("update users set pass = ? where iduser = ?",[NewPassHash,iduser])
+            await Dbpool.query("update users set pass = ? where iduser = ?",[NewPassHash,FreeId])
             req.flash("success_msg","Password updated successfully")
             res.redirect('/login')
         }
