@@ -5,7 +5,7 @@
             <div id="resetpass-card" class="card">
                 <h5 class="card-header bg-dark text-center text-white" style="font-weight: bold; font-size: 40px;">Recover my password</h5>
                 <div class="card-body">
-                 <form action="/resetpass/<%=iduser%>/<%=token%>" method="POST">
+                 <form action="/resetpass/<%=token%>" method="POST">
                     <div class="form-group">
                         <input type="password" id="newpass" name="newpass" placeholder="New password" class="form-control">
                     </div>  
