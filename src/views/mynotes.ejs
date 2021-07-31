@@ -59,8 +59,9 @@
                                     <div class="card-body">
                                       <p class="card-text text-justify"><%=notes[i].content%></p>
                                       <small>Created at: <%=notes[i].createdat%></small>
-                                      <a href="/editnote/<%=notes[i].idnote%>" class="btn mt-3 btn-sm btn-outline-dark btn-block"><i class="fas fa-pen mr-3"></i>Edit</a>
+                                      <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-dark btn-block"><i class="fas fa-pen mr-3"></i>Edit</button>
                                       <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-danger btn-block"><i class="fas fa-trash mr-3"></i>Delete</button>
+                                      
                                     </div>
                                   </div>    
                             </div>
@@ -78,8 +79,6 @@
                 </button>
             </div>
         </div>
-            
-           
            <% }%>
     </div>
 </div>
@@ -102,7 +101,7 @@
                   <div class="modal-body">
                           <a href="/deletenote/<%= notes[i].idnote %>/<%= notes[i].title %>" class="btn btn-outline-danger  btn-block" >Delete</a>
                           <button type="button" data-dismiss="modal" class="btn btn-outline-dark btn-block">Cancel</button>                      
-                      </form>                
+                                 
                   </div>
                   </div>
                 </div>
@@ -111,6 +110,62 @@
         </div>
   <!--/Delete note modal-->
   <%}%>  
+
+  <% for (var i = 0;  i< notes.length; i++){%>
+    <!--edit note modal-->
+    <div>
+      <div class="container-fluid">
+          <div id="editnote<%= notes[i].idnote %>" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content ">
+                  <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-white" style="font-weight: bold; font-size: 34px;">Edit note '<%= notes[i].title %>'</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                    <!--<a href="/users" class="close" >
+                      <span aria-hidden="true">&times;</span>
+                  </a>-->
+                  </div>
+                  <div class="modal-body">
+                    <form action="/editnote/<%=notes[i].idnote%>" method="post">
+                        <div class="form-group">
+                            <input type="text" value="<%=notes[i].title%>" name="title" placeholder="Note title" class="form-control">
+                        </div>  
+                        <div class="form-group">
+                            <label for="content">Note content:</label>
+                            <textarea class="form-control" value="<%=notes[i].content%>" name="content" id="content " cols="30" rows="8"><%=notes[i].content%></textarea>
+                        </div>  
+                        <select name="importance"  value="<%=notes[i].importance%>" class="form-control mb-2" required>               
+                            <%if(notes[i].importance=='dark'){ %>
+                                <option selected value="dark">Normal</option>
+                                <option value="warning">Important</option>
+                                <option value="danger">Very Important</option>
+                            <%}  %>
+                            <%if(notes[i].importance=='warning'){ %>
+                                <option value="dark">Normal</option>
+                                <option selected value="warning">Important</option>
+                                <option value="danger">Very Important</option>
+                            <%}  %>
+                            <%if(notes[i].importance=='danger'){ %>
+                                <option value="dark">Normal</option>
+                                <option value="warning">Important</option>
+                                <option selected value="danger">Very Important</option>
+                            <%} %>
+                            
+                          </select> 
+                        <button type="submit" class="btn btn-outline-dark btn-block">Save Changes</button>  
+                        <a href="/mynotes" class="btn btn-outline-dark btn-block mb-5">Cancel</a>                      
+                    </form>                       
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+  <!--/edit note modal-->
+  <%}%> 
+
   <link rel="stylesheet" type="text/css" href="/footerstyle.css">
 <script>
 window.sr = ScrollReveal();
