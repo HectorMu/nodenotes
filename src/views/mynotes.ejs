@@ -135,7 +135,8 @@
                   <div class="modal-body">
                     <form action="/editnote/<%=notes[i].idnote%>" method="post">
                         <div class="form-group">
-                            <input type="text" value="<%=notes[i].title%>"  name="title" placeholder="Note title" class="form-control">
+                            <input type="text" value="<%=notes[i].title%>" id="notetitle"  maxlength="14" name="title" placeholder="Note title" class="form-control">
+                            <span id="TlengthE" style="font-size:14px;"></span>
                         </div>  
                         <div class="form-group">
                             <label for="content">Note content:</label>
@@ -196,6 +197,20 @@ sr.reveal('#dropdownSortButton',{
     origin: 'left',
     distance: '10px'
 });
+
+</script>
+<script>
+    const noteTitleEdit = document.getElementById('notetitle')
+    const adviseTitleEdit = document.getElementById('TlengthE')
+    noteTitleEdit.addEventListener("keyup",()=>{
+      if(noteTitleEdit.value.length>=14){
+       
+        adviseTitleEdit.innerHTML="Note title maximun length is 14 characters";
+      }else{
+
+        adviseTitleEdit.innerHTML="";
+      }
+    })
 
 </script>
 <%-include('index_partials/footer.ejs');-%>
