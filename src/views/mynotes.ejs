@@ -54,13 +54,18 @@
                             <div class="container">
                                 <div class="card  border-<%=notes[i].importance%> h-100 " style="width: 100%;">
                                     <div class="card-header bg-<%=notes[i].importance%> text-white text-center">
-                                        <strong><%=notes[i].title%></strong>
+                                        
+                                        <div class="d-flex justify-content-end">
+                                            <strong class="justify-content-end mr-4"> <%=notes[i].title%></strong>
+                                            <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-secondary btn-sm mr-1 "><i class="fas fa-pen"></i></button>
+                                            <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>"  style="background-color:brown; border: 0px;" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                        </div>
                                     </div>
                                     <div class="card-body">
                                       <p class="card-text text-justify"><%=notes[i].content%></p>
                                       <small>Created at: <%=notes[i].createdat%></small>
-                                      <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-dark btn-block"><i class="fas fa-pen mr-3"></i>Edit</button>
-                                      <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-danger btn-block"><i class="fas fa-trash mr-3"></i>Delete</button>
+                                      <!-- <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-dark btn-block"><i class="fas fa-pen mr-3"></i>Edit</button>
+                                      <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-danger btn-block"><i class="fas fa-trash mr-3"></i>Delete</button> -->
                                       
                                     </div>
                                   </div>    
@@ -155,7 +160,7 @@
                             
                           </select> 
                         <button type="submit" class="btn btn-outline-dark btn-block">Save Changes</button>  
-                        <a href="/mynotes" class="btn btn-outline-dark btn-block mb-5">Cancel</a>                      
+                        <button type="button" data-dismiss="modal" class="btn btn-outline-dark btn-block">Cancel</button>                    
                     </form>                       
                   </div>
                   </div>
@@ -175,12 +180,6 @@ sr.reveal('#nonotes',{
     distance: '300px'
 });
 
-
-sr.reveal('#search',{
-    duration: 1000,
-    origin: 'top',
-    distance: '400px'
-});
 sr.reveal('#newnote',{
     duration: 1000,
     origin: 'right',
