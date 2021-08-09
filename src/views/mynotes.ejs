@@ -6,10 +6,10 @@
             <button id="newnote" type="button" class="btn  btn-block justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
                 <i class="fas fa-plus mr-2" ></i> New note
             </button>
-            <div class="dropdown">
-                <button class="btn btn-outline-dark btn-block mt-2 dropdown-toggle" type="button" id="dropdownSortButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown ">
+                <button class="btn btn-outline-dark btn-block mt-2  dropdown-toggle" type="button" id="dropdownSortButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     
-                   <small>Sort notes by:</small> 
+                   <small >Sort by:</small> 
                 </button>
                 <div class="dropdown-menu border-0 radius-0 text-center" aria-labelledby="dropdownSortButton">
                     <a class="dropdown-item pt-1 border-0 font-weight-bold " href="/mynotes">All notes</a>
@@ -51,14 +51,14 @@
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-md-1 row-cols-sm-2">
                     <% for (var i = 0;  i< notes.length; i++){%>
                         <div class="col mt-2">
-                            <div class="container">
-                                <div class="card  border-<%=notes[i].importance%> h-100 " style="width: 100%;">
-                                    <div class="card-header bg-<%=notes[i].importance%> text-white text-center">
-                                        
-                                        <div class="d-flex justify-content-end">
-                                            <strong class="justify-content-end" style="margin-right:22%;"> <%=notes[i].title%></strong>
-                                            <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-secondary btn-sm mr-1 "><i class="fas fa-pen"></i></button>
-                                            <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>"  style="background-color:brown; border: 0px;" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                            <div class="container-fluid">
+                                <div class="card  border-<%=notes[i].importance%> h-100 w-100 ">
+                                    <div class="card-header  d-flex justify-content-between bg-<%=notes[i].importance%> text-white text-center">
+                                      <strong class="text-center"> <%=notes[i].title%></strong>
+                                        <div >
+    
+                                            <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-secondary btn-sm ml-1 mb-1 " style="border:0px"><i class="fas fa-pen"></i></button>
+                                            <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>"  style="background-color:brown; border: 0px;" class="btn btn-sm btn-danger mb-1"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -135,7 +135,7 @@
                   <div class="modal-body">
                     <form action="/editnote/<%=notes[i].idnote%>" method="post">
                         <div class="form-group">
-                            <input type="text" value="<%=notes[i].title%>" id="notetitle"  maxlength="14" name="title" placeholder="Note title" class="form-control">
+                            <input type="text" value="<%=notes[i].title%>" id="notetitleE"  maxlength="14" name="title" placeholder="Note title" class="form-control">
                             <span id="TlengthE" style="font-size:14px;"></span>
                         </div>  
                         <div class="form-group">
@@ -169,6 +169,20 @@
               </div>
             </div>
         </div>
+        <script>
+          const noteTitleEdit = document.getElementById('notetitleE')
+          const adviseTitleEdit = document.getElementById('TlengthE')
+          noteTitleEdit.addEventListener("keyup",()=>{
+            if(noteTitleEdit.value.length>=14){
+             
+              adviseTitleEdit.innerHTML="Note title maximun length is 14 characters";
+            }else{
+      
+              adviseTitleEdit.innerHTML="";
+            }
+          })
+      
+      </script>
   <!--/edit note modal-->
   <%}%> 
 
@@ -199,19 +213,6 @@ sr.reveal('#dropdownSortButton',{
 });
 
 </script>
-<script>
-    const noteTitleEdit = document.getElementById('notetitle')
-    const adviseTitleEdit = document.getElementById('TlengthE')
-    noteTitleEdit.addEventListener("keyup",()=>{
-      if(noteTitleEdit.value.length>=14){
-       
-        adviseTitleEdit.innerHTML="Note title maximun length is 14 characters";
-      }else{
 
-        adviseTitleEdit.innerHTML="";
-      }
-    })
-
-</script>
 <%-include('index_partials/footer.ejs');-%>
 <%-include('notesControls/addmodal.ejs');-%>
