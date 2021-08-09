@@ -14,7 +14,7 @@
             <div class="modal-body">
                 <form action="/savenote" method="post">
                     <div class="form-group">
-                        <input type="text" name="title" maxlength="14" id="notetitle" placeholder="Note title" class="form-control">
+                        <input type="text" name="title" maxlength="14" id="notetitleAdd" placeholder="Note title" class="form-control">
                         <span id="Tlength" style="font-size:14px;"></span>
                     </div>  
                     <div class="form-group">
@@ -38,7 +38,7 @@
   </div>
 
   <script>
-    const noteTitle = document.getElementById('notetitle')
+    const noteTitle = document.getElementById('notetitleAdd')
     const adviseTitle = document.getElementById('Tlength')
     noteTitle.addEventListener("keyup",()=>{
       if(noteTitle.value.length>=14){
