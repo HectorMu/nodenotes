@@ -90,8 +90,8 @@ html, body {
     background-color: #292b2c;
     width: 60px;
     height: 60px;
-    right: 10%;
-    bottom: 10%;
+    right: 8%;
+    bottom: 9%;
     border-radius: 100%;
     background: #292b2c;
     border: none;
@@ -113,4 +113,12 @@ html, body {
     transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+  }
+
+  #SortButtonFloat{
+    position: fixed;
+    z-index: 99999;
+    font-size: 20px;
+    right: 78%;
+    bottom: 10%;
   }
