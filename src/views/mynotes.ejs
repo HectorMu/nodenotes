@@ -1,14 +1,13 @@
 <%-include('index_partials/header.ejs');-%>
 <div class="row " style="margin-top: 80px;">
-    <div class="col col-12 col-sm-12 col-lg-2 col-md-2 col-xl-2  ">
+    <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2  ">
        <%if(!notes.length==0){%>
         <div class="container-fluid">
-            <button id="newnote" type="button" class="btn  btn-block justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
+            <button id="newnote" type="button" class="btn d-none d-lg-block  d-xl-block d-xl-non  btn-block justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
                 <i class="fas fa-plus mr-2" ></i> New note
             </button>
             <div class="dropdown ">
                 <button class="btn btn-outline-dark btn-block mt-2  dropdown-toggle" type="button" id="dropdownSortButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    
                    <small >Sort by:</small> 
                 </button>
                 <div class="dropdown-menu border-0 radius-0 text-center" aria-labelledby="dropdownSortButton">
@@ -35,7 +34,10 @@
     <%}%>
     </div>
     <div class="col col-sm-12 col-12   col-lg-8 col-md-8" >
-        <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 text-center " style="border-radius: 10px;"> All my notes</h1> 
+      <div class="container-fluid">
+        <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 text-center " > All my notes</h1> 
+     
+       
         <%if(!notes.length==0){%>
         <form id="search" action="/notesearch/" class="mt-2  mb-2  justify-content-center" method="post">
             <div class="input-group ">
@@ -45,11 +47,14 @@
                 </div>
             </div>   
         </form>  
+      </div>
     <%}%>  
     <section id="usernotes" class="mb-5">
         <%if(notes.length>0){%>
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-md-1 row-cols-sm-2">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-md-2 row-cols-sm-2">
+              
                     <% for (var i = 0;  i< notes.length; i++){%>
+                      
                         <div class="col mt-2">
                             <div class="container-fluid">
                                 <div class="card  border-<%=notes[i].importance%> h-100 w-100 ">
@@ -74,6 +79,8 @@
                         </div>
                         <%}%>                        
         </div>  
+        <button type="button" data-toggle="modal" data-target="#addnote" class="kc_fab_main_btn d-xl-none d-lg-none">+</button>
+ 
     </section>
     <%}else{%>
         <div class="container-fluid">
