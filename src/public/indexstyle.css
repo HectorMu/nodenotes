@@ -122,3 +122,6 @@ html, body {
     right: 65%;
     bottom: 10%;
   }
+  .modal.fade {
+    z-index: 999999999999 !important;
+  }
