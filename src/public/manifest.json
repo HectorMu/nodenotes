@@ -4,6 +4,7 @@
   "name": "NodeNotes",
   "short_name": "NoNotes",
   "scope": "/",
+  "start_url": "/login",
   "lang": "en",
   "description": "Make ur own notes",
   "theme_color": "#000000",
