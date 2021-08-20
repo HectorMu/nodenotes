@@ -1,6 +1,6 @@
 {
   "dir": "auto",
-  "display": "standalone",
+  "display": "minimal-ui",
   "name": "NodeNotes",
   "short_name": "NoNotes",
   "scope": "/",
