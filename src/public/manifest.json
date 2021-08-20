@@ -7,7 +7,7 @@
   "lang": "en",
   "description": "Make ur own notes",
   "theme_color": "#000000",
-  "background_color": "none",
+  "background_color": "#000000",
   "icons": [
     {
       "src": "images/71x71.png",
