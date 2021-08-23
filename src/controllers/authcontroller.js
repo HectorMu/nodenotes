@@ -22,6 +22,9 @@ authController.login = (req, res, next)=>{
             return res.redirect('/login')
         }
         req.logIn(user,(err)=>{
+            let hour = 18000000
+            req.session.cookie.expires = new Date(Date.now()+hour)
+            req.session.cookie.maxAge = hour
             return res.redirect('/'+req.user.startscreen)
         })
     })(req, res, next)
