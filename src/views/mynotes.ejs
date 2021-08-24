@@ -158,7 +158,7 @@
                         </div>  
                         <div class="form-group">
                             <label for="content">Note content:</label>
-                            <textarea class="form-control" value="<%=notes[i].content%>" name="content" id="content " cols="30" rows="8"><%=notes[i].content%  required></textarea>
+                            <textarea class="form-control" value="<%=notes[i].content%>" name="content" id="content " cols="30" rows="8" required><%=notes[i].content%></textarea>
                         </div>  
                         <select name="importance"  value="<%=notes[i].importance%>" class="form-control mb-2" required>               
                             <%if(notes[i].importance=='dark'){ %>
