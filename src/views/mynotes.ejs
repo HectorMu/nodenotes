@@ -153,12 +153,12 @@
                   <div class="modal-body">
                     <form action="/editnote/<%=notes[i].idnote%>" method="post">
                         <div class="form-group">
-                            <input type="text" value="<%=notes[i].title%>" id="notetitleE"  maxlength="14" name="title" placeholder="Note title" class="form-control">
+                            <input type="text" value="<%=notes[i].title%>" id="notetitleE"  maxlength="14" name="title" placeholder="Note title" class="form-control"  required>
                             <span id="TlengthE" style="font-size:14px;"></span>
                         </div>  
                         <div class="form-group">
                             <label for="content">Note content:</label>
-                            <textarea class="form-control" value="<%=notes[i].content%>" name="content" id="content " cols="30" rows="8"><%=notes[i].content%></textarea>
+                            <textarea class="form-control" value="<%=notes[i].content%>" name="content" id="content " cols="30" rows="8"><%=notes[i].content%  required></textarea>
                         </div>  
                         <select name="importance"  value="<%=notes[i].importance%>" class="form-control mb-2" required>               
                             <%if(notes[i].importance=='dark'){ %>
