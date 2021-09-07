@@ -3,7 +3,7 @@
     <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2  ">
        <%if(!notes.length==0){%>
         <div class="container-fluid">
-            <button id="newnote" type="button" class="btn d-none d-lg-block position-fixed d-xl-block d-xl-none   justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
+            <button id="newnote" type="button" class="btn position-fixed d-none d-lg-block  d-xl-block d-xl-none   justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
                 <i class="fas fa-plus mr-2" ></i> New note
             </button>
             <div class="dropdown ">
@@ -18,11 +18,19 @@
                 </div>
               </div>
         </div>
-        
-        
-        
+        <div class="container">
+          <div class="mt-2 d-xl-none d-lg-none">  
+              <% if(error_msg.length>0){%>
+                  <%-include('warnings/alert.ejs');-%>
+                <%}%>
+                <% if(success_msg.length>0){%>
+                  <%-include('warnings/success.ejs');-%>
+              <%}%>
+          </div>   
+      </div>
     <%}%>
     </div>
+    <!--Center column-->
     <div class="col col-sm-12 col-12   col-lg-8 col-md-8" >
       <div class="container-fluid">
         <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 text-center " > All my notes</h1> 
@@ -92,17 +100,18 @@
         </div>
            <% }%>
     </div>
-    <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2  ">
-      <div class="container mt-2">
-        <div class="mt-2">
+    <!--Right column-->
+    <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2 d-none d-lg-block  d-xl-block d-xl-none  ">
+      <div class="container-fluid">
+        <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 w-100 text-center"><i class="far fa-bell"></i></h1>
+        <div class="mt-2">  
             <% if(error_msg.length>0){%>
                 <%-include('warnings/alert.ejs');-%>
               <%}%>
               <% if(success_msg.length>0){%>
                 <%-include('warnings/success.ejs');-%>
             <%}%>
-        </div>
-       
+        </div>   
     </div>
     </div>
 </div>
