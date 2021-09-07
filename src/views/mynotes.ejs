@@ -1,8 +1,9 @@
 <%-include('index_partials/header.ejs');-%>
 <div class="row " style="margin-top: 80px;">
+  <!--Left column-->
     <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2  ">
        <%if(!notes.length==0){%>
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <button id="newnote" type="button" class="btn position-fixed d-none d-lg-block  d-xl-block d-xl-none   justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
                 <i class="fas fa-plus mr-2" ></i> New note
             </button>
@@ -31,7 +32,7 @@
     <%}%>
     </div>
     <!--Center column-->
-    <div class="col col-sm-12 col-12   col-lg-8 col-md-8" >
+    <div class="col col-sm-12 col-12 col-lg-8 col-md-8 " >
       <div class="container-fluid">
         <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 text-center " > All my notes</h1> 
         <%if(!notes.length==0){%>
@@ -100,6 +101,7 @@
         </div>
            <% }%>
     </div>
+    <%if(notes.length>0){%>
     <!--Right column-->
     <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2 d-none d-lg-block  d-xl-block d-xl-none  ">
       <div class="container-fluid">
@@ -114,6 +116,7 @@
         </div>   
     </div>
     </div>
+  <%}%>
 </div>
 <% for (var i = 0;  i< notes.length; i++){%>
     <!--Delete note modal-->
