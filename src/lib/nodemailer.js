@@ -23,7 +23,7 @@ Email.Send = async (req, res)=>{
         id: user[0].iduser
     }
     const token = jwt.sign(payload,process.env.TOKEN_SECRET,{expiresIn: '15m'})
-    const link = `https://hmnodenotes.herokuapp.com/resetpass/${token}ñ${user[0].iduser}`
+    const link = `https://nodenoteshm.herokuapp.com/resetpass/${token}ñ${user[0].iduser}`
 
     let emailOptions = {
         from: 'nodenotes@outlook.com',
