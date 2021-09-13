@@ -1,7 +1,7 @@
 <%-include('index_partials/header.ejs');-%>
 <div class="row " style="margin-top: 80px;">
   <!--Left column-->
-    <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2  ">
+    <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-1  ">
        <%if(!notes.length==0){%>
         <div class="container-fluid ">
             <button id="newnote" type="button" class="btn position-fixed d-none d-lg-block  d-xl-block d-xl-none   justify-content-center  btn-outline-dark  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
@@ -48,7 +48,7 @@
     <%}%>  
     <section id="usernotes" class="mb-5">
         <%if(notes.length>0){%>
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-md-2 row-cols-sm-2">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 row-cols-md-2 row-cols-sm-2">
               
                     <% for (var i = 0;  i< notes.length; i++){%>
                       
