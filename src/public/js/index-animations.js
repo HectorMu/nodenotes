@@ -1,4 +1,5 @@
 window.sr = ScrollReveal();
+window.addEventListener('load',()=>{
 
 sr.reveal('.header-content-left',{
     duration: 2000,
@@ -47,4 +48,10 @@ sr.reveal('#backtop',{
     origin: 'top',
     distance:'100px'
 });
+
+
+
+})
+
+
 
