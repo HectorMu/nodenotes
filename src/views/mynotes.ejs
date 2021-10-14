@@ -203,7 +203,7 @@
         <script>
           const noteTitleEdit<%= notes[i].idnote %> = document.getElementById('notetitleE<%= notes[i].idnote %>')
           const adviseTitleEdit<%= notes[i].idnote %> = document.getElementById('TlengthE<%= notes[i].idnote %>')
-          noteTitleEdit.addEventListener("keyup",()=>{
+          noteTitleEdit<%= notes[i].idnote %>.addEventListener("keyup",()=>{
             if(noteTitleEdit<%= notes[i].idnote %>.value.length>=14){
              
               adviseTitleEdit<%= notes[i].idnote %>.innerHTML="Title maximun length is 14 characters";
