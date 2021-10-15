@@ -17,7 +17,7 @@ app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 app.enable('trust proxy')
 
-app.use(helpers.httpsRedirect);
+// app.use(helpers.httpsRedirect);
 
 //Middlewares
 app.use(morgan('dev'))
@@ -56,6 +56,9 @@ app.use('/',require('./routes/authRoutes'))
 app.use('/',require('./routes/profileRoutes'))
 app.use('/',require('./routes/notesRoutes'))
 app.use('/',require('./routes/indexRoutes'))
+
+//api routes
+app.use('/',require('./routes/apiRoutes'))
 
 //unknown route redirect
 app.use(helpers.unknownPageRedirect);

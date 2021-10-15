@@ -19,6 +19,7 @@
                         </div> 
                         <div class="form-group">
                             <input id="email" type="email" name="email" placeholder="Email" class="form-control" required>
+                            <small><p id="emailMessage"></p></small>
                         </div>  
                         <div class="form-group">
                             <input id="pass" type="password" name="pass" placeholder="Password" class="form-control" required>
@@ -36,7 +37,8 @@
             </div>
         </div>
     </div>
-    <script src="js/signup-validations.js"></script>
+    <script type="module" src="js/UserValidations/user.validation.js"></script>
+    <script type="module" src="js/UserValidations/emailRealtimeValidation.js"></script>
     <script>
         window.sr = ScrollReveal();
         sr.reveal('#signup-form',{

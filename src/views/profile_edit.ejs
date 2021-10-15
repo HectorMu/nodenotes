@@ -76,7 +76,8 @@
                     </div>   
                     <small><p id="match"></p></small>
                     <button id="savepass" type="submit" class="btn btn-outline-dark btn-block">Change password</button>  
-                    <button type="button" data-dismiss="modal" class="btn mb-5 btn-outline-dark btn-block">Cancel</button>                      
+                    <button type="button" data-dismiss="modal" class="btn mb-5 btn-outline-dark btn-block">Cancel</button>  
+                    <script type="module" src="/js/UserValidations/changepass.validation.js"></script>                    
                 </form>                
             </div>
             </div>
@@ -136,53 +137,7 @@ sr.reveal('#user-controls',{
     distance:'100px'
 });
 </script>
-<script>
-    //MATCH MESSAGE
- const matchMessage = document.getElementById('match')
- //LENGHT MESSAGE
- const lengthMessage = document.getElementById('res')
- const txtPass = document.getElementById("newpass")
- const txtConfirm = document.getElementById("confirm")
- const btnChange = document.getElementById('savepass')
-            //VALIDATE PASSWORD LENGTH
-             txtPass.addEventListener("keyup", function(){
-                 if(txtPass.value.length<8){
-                     lengthMessage.innerHTML ="Password must be 8 caracters length minimun"
-                     btnChange.disabled = true
-                 }
-                 if(txtPass.value.length >=8){
-                     lengthMessage.innerHTML =""
-                     btnChange.disabled = false                    
-                 }
-                 if(txtPass.value != txtConfirm.value){
-                   matchMessage.innerHTML ="Passwords do not match"
-                   btnChange.disabled = true
-               }
-               if(txtPass.value == txtConfirm.value){
-                   matchMessage.innerHTML =""
-                   btnChange.disabled = false
-               }
-                 txtConfirm.addEventListener("keyup", function(){
-                   if(txtPass.value.length<8){
-                       lengthMessage.innerHTML ="Password must be 8 caracters length minimun"
-                       btnChange.disabled = true
-                   }
-                   if(txtPass.value.length >=8){
-                       lengthMessage.innerHTML =""
-                       btnChange.disabled = false
-                       //VALIDATE PASSWORD MATCHS                  
-                   }
-                   if(txtPass.value != txtConfirm.value){
-                       matchMessage.innerHTML ="Passwords do not match"
-                       btnChange.disabled = true
-                   }
-                   if(txtPass.value == txtConfirm.value){
-                       matchMessage.innerHTML =""
-                       btnChange.disabled = false
-                   }
-                  
-               })    
-         })
-</script>
+
+
 <link rel="stylesheet" href="/footerstyle.css">
 <%-include('index_partials/footer.ejs');-%>
