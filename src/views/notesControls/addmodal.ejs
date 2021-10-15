@@ -1,15 +1,12 @@
 <div class="container-fluid">
     <div id="addnote" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
           <div class="modal-content ">
             <div class="modal-header bg-dark">
               <h5 class="modal-title text-white" style="font-weight: bold; font-size: 34px;">Add new note</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" class="text-white">&times;</span>
               </button>
-              <!--<a href="/users" class="close" >
-                <span aria-hidden="true">&times;</span>
-            </a>-->
             </div>
             <div class="modal-body">
                 <form action="/savenote" method="post">
@@ -36,19 +33,3 @@
         </div>
       </div>
   </div>
-
-  <script>
-    const noteTitle = document.getElementById('notetitleAdd')
-    const adviseTitle = document.getElementById('Tlength')
-    noteTitle.addEventListener("keyup",()=>{
-      if(noteTitle.value.length>=14){
-       
-        adviseTitle.innerHTML="Note title maximun length is 14 characters";
-      }else{
-
-        adviseTitle.innerHTML="";
-      }
-    })
-
-  </script>
-  

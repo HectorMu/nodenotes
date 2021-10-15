@@ -109,10 +109,7 @@ html, body {
     color: #292b2c;
   }
   .kc_fab_main_btn:focus {
-    transform: scale(1.1);
-    transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+    transform: scale(1.1);;
   }
 
   #SortButtonFloat{
@@ -124,4 +121,8 @@ html, body {
   }
   .modal.fade {
     z-index: 999999999999 !important;
+  }
+
+  #usernotes .card-body:hover{
+      cursor: pointer;
   }

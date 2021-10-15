@@ -48,31 +48,24 @@
     <%}%>  
     <section id="usernotes" class="mb-5">
         <%if(notes.length>0){%>
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-md-2 row-cols-sm-2">
-              
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-md-2 row-cols-sm-2">        
                     <% for (var i = 0;  i< notes.length; i++){%>
-                      
                         <div class="col mt-2">
                             <div class="container-fluid">
-                                <div class="card  border-<%=notes[i].importance%> h-100 w-100 ">
+                                <div class="card  border-<%=notes[i].importance%> h-100 w-100 " data-toggle="tooltip" data-placement="left" title="Click to edit">
                                     <div class="card-header  d-flex justify-content-between bg-<%=notes[i].importance%> text-white text-center">
-                                      <strong class="text-center"> <%=notes[i].title%></strong>
+                                      <strong class=" d-inline-block text-center text-truncate" style="max-width:60%;"> <%=notes[i].title%></strong>
                                         <div >
-    
                                             <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-secondary btn-sm ml-1 mb-1 " style="border:0px"><i class="fas fa-pen"></i></button>
                                             <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>"  style="background-color:brown; border: 0px;" class="btn btn-sm btn-danger mb-1"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" >
                                       <p class="card-text text-justify"><%=notes[i].content%></p>
-                                      <small>Created at: <%=notes[i].createdat%></small>
-                                      <!-- <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-dark btn-block"><i class="fas fa-pen mr-3"></i>Edit</button>
-                                      <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>" class="btn btn-sm btn-outline-danger btn-block"><i class="fas fa-trash mr-3"></i>Delete</button> -->
-                                      
+                                      <small>Created at: <%=notes[i].createdat%></small>                                  
                                     </div>
                                   </div>    
-                            </div>
-                           
+                            </div>   
                         </div>
                         <%}%>                        
         </div>  
@@ -123,16 +116,13 @@
     <div>
       <div class="container-fluid">
           <div id="deletenote<%= notes[i].idnote %>" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
-              <div class="modal-dialog modal-lg">
+              <div class="modal-dialog modal-md">
                 <div class="modal-content ">
                   <div class="modal-header bg-dark">
                     <h5 class="modal-title text-white" style="font-weight: bold; font-size: 34px;">¿Delete note '<%= notes[i].title %>'?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true" class="text-white">&times;</span>
                     </button>
-                    <!--<a href="/users" class="close" >
-                      <span aria-hidden="true">&times;</span>
-                  </a>-->
                   </div>
                   <div class="modal-body">
                           <a href="/deletenote/<%= notes[i].idnote %>/<%= notes[i].title %>" class="btn btn-outline-danger  btn-block" >Delete</a>
@@ -152,21 +142,18 @@
     <div>
       <div class="container-fluid">
           <div id="editnote<%= notes[i].idnote %>" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
-              <div class="modal-dialog modal-lg">
+              <div class="modal-dialog modal-md">
                 <div class="modal-content ">
                   <div class="modal-header bg-dark">
                     <h5 class="modal-title text-white" style="font-weight: bold; font-size: 34px;">Edit note '<%= notes[i].title %>'</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true" class="text-white">&times;</span>
                     </button>
-                    <!--<a href="/users" class="close" >
-                      <span aria-hidden="true">&times;</span>
-                  </a>-->
                   </div>
                   <div class="modal-body">
                     <form action="/editnote/<%=notes[i].idnote%>" method="post">
                         <div class="form-group">
-                            <input type="text" value="<%=notes[i].title%>" id="notetitleE<%= notes[i].idnote %>"  maxlength="14" name="title" placeholder="Note title" class="form-control">
+                            <input type="text" value="<%=notes[i].title%>" id="notetitleE<%= notes[i].idnote %>"   name="title" placeholder="Note title" class="form-control">
                             <span id="TlengthE<%= notes[i].idnote %>" style="font-size:14px;"></span>
                         </div>  
                         <div class="form-group">
@@ -200,21 +187,6 @@
               </div>
             </div>
         </div>
-        <script>
-          const noteTitleEdit<%= notes[i].idnote %> = document.getElementById('notetitleE<%= notes[i].idnote %>')
-          const adviseTitleEdit<%= notes[i].idnote %> = document.getElementById('TlengthE<%= notes[i].idnote %>')
-          noteTitleEdit<%= notes[i].idnote %>.addEventListener("keyup",()=>{
-            if(noteTitleEdit<%= notes[i].idnote %>.value.length>=14){
-             
-              adviseTitleEdit<%= notes[i].idnote %>.innerHTML="Title maximun length is 14 characters";
-            }else{
-      
-              adviseTitleEdit<%= notes[i].idnote %>.innerHTML="";
-            }
-          })
-      
-      </script>
-  <!--/edit note modal-->
   <%}%> 
 
 <script>
@@ -225,12 +197,6 @@ sr.reveal('#nonotes',{
     distance: '300px'
 });
 
-
-sr.reveal('#search',{
-    duration: 1000,
-    origin: 'top',
-    distance: '400px'
-});
 sr.reveal('#newnote',{
     duration: 1000,
     origin: 'right',
@@ -241,8 +207,8 @@ sr.reveal('#dropdownSortButton',{
     origin: 'left',
     distance: '10px'
 });
-
 </script>
+
 <div style="margin-top: 31vh;">
   <%-include('index_partials/footer.ejs');-%>
 </div>
