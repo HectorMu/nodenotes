@@ -66,7 +66,7 @@ authController.RenderRecoverView = (req, res)=>{
     try {
         const payload = jwt.verify(Freetoken,process.env.TOKEN_SECRET)
         res.render('resetpass',{
-            //here we pass the req.params to recover view
+            //here we pass the token sended in req.params to render the recover view
         token
         })
     } catch (error) {
