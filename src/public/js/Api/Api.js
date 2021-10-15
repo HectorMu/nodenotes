@@ -1,4 +1,4 @@
-const API = `https://nodenoteshm.herokuapp.com/`
+const API = `https://nodenoteshm.herokuapp.com/api/`
 
 
 export const getAllUsers = async()=>{
