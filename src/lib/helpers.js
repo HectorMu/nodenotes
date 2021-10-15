@@ -24,7 +24,7 @@ helpers.httpsRedirect = (req, res, next)=>{
 }
 helpers.unknownPageRedirect  = (_, res)=> res.redirect("/")
 
-helpers.sessionConfig = () =>{
+helpers.databaseKeys = () =>{
     let options = {
         host:process.env.DB_HOST ,
         port: 3306,

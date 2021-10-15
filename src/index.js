@@ -29,7 +29,7 @@ app.use(session({
     secret:process.env.SESSION_SECRET,
     resave:false,
     saveUninitialized:false,
-    store: new MySqlSessStore(helpers.sessionConfig())
+    store: new MySqlSessStore(helpers.databaseKeys())
 }))
 
 //flash, passport an passport session init
