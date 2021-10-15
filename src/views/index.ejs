@@ -66,10 +66,10 @@
                         <h1>Contact</h1>               
                     </div>
                     <div class="card-body">
-                        <form action="https://formspree.io/f/xleapeqa" method="POST">
-                            <input type="text" class="form-control mb-2" name="_replyto" placeholder="Email">
+                        <form  id="contactForm" method="POST">
+                            <input type="text" class="form-control mb-2" id="reply" name="_replyto" placeholder="Email">
                                 <strong class="d-flex justify-content-center">Your Message</strong>
-                            <textarea class="form-control" name="message" id="" cols="30" rows="10"></textarea>
+                            <textarea class="form-control" name="message" id="message" cols="30" rows="10"></textarea>
                             <button type="submit" class="btn btn-outline-light btn-block mt-2">Send</button>
                         </form>
                     </div>
@@ -83,6 +83,6 @@
         <a href="#" class="btn btn-outline-dark rounded-circle"><i class="fas fa-arrow-up"></i></a> 
     </div>
 </section>
-
 <script src="js/index-animations.js"></script>
+<script src="js/contactEmailHandler.js"></script>
 <%-include('index_partials/footer.ejs');-%>
