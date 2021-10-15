@@ -99,8 +99,9 @@ controller.searchNote = async(req, res)=>{
     }
     const notes = await Dbpool.query("select * from notes where title like ? && fkuser = ?",['%'+search+'%',iduser])
     if(notes.length>0){
+        actualNotes = `Note finded`
         res.render('mynotes',{
-            notes
+            notes,actualNotes
         })
     }
     else{
