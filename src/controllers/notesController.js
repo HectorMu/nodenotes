@@ -1,21 +1,21 @@
 const controller = {}
 const Dbpool = require('../database')
+let actualNotes = "All my notes"
 
 controller.listNotes = async (req, res)=>{
     const notes = await Dbpool.query("select * from notes where fkuser = ?",[req.user.iduser])
-  
-        console.log(notes)
+    actualNotes = "All my notes"
         res.render('mynotes',{
-            notes, 
+            notes, actualNotes,
         })   
    
 }
 controller.listImportantNotes = async (req, res)=>{
     const notes = await Dbpool.query("select * from notes where importance = 'warning' && fkuser = ?",[req.user.iduser])
     if(notes.length>0){
-        console.log(notes) 
+        actualNotes = "Important notes"
         res.render('mynotes',{
-        notes, 
+        notes, actualNotes
     })  
     }else{
         req.flash("error_msg","There isn't important notes")
@@ -26,9 +26,9 @@ controller.listImportantNotes = async (req, res)=>{
 controller.listVeryImportantNotes = async (req, res)=>{
     const notes = await Dbpool.query("select * from notes where importance = 'danger' && fkuser = ?",[req.user.iduser])
     if(notes.length>0){
-        console.log(notes)
+        actualNotes = "Very important notes"
         res.render('mynotes',{
-            notes, 
+            notes, actualNotes
         })  
     }else{
         req.flash("error_msg","There isn't very important notes")
@@ -39,16 +39,14 @@ controller.listVeryImportantNotes = async (req, res)=>{
 controller.listNormalNotes = async (req, res)=>{
     const notes = await Dbpool.query("select * from notes where importance = 'dark' && fkuser = ?",[req.user.iduser])
     if(notes.length>0){
-        console.log(notes)
-    
+        actualNotes = "Normal importance notes" 
         res.render('mynotes',{
-            notes, 
+            notes,  actualNotes
         })   
     }else{
         req.flash("error_msg","There isn't normal importance notes")
         res.redirect('/mynotes')
     }
-   
 }
 
 
