@@ -1,64 +1,39 @@
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const morgan = require('morgan')   
 const session = require('express-session')
-//const myConnection = require('express-myconnection')
-const flash = require('connect-flash')  
-const cookieParser = require('cookie-parser')   
+const flash = require('connect-flash')   
 const MySqlSessStore = require('express-mysql-session')(session)
-const bCyrpt = require('bcryptjs')
-const dotenv = require ('dotenv')
 const passport = require('passport')
-const passportLocal = require('passport-local').Strategy
+const helpers = require('./lib/helpers')
 require("./lib/passport")
 const Dbpool = require('./database')
 
 
 const app = express()
+
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 app.enable('trust proxy')
-app.use (function (req, res, next) {
-    if (req.secure) {
-            // request was via https, so do no special handling
-            next();
-    } else {
-            // request was via http, so redirect to https
-            res.redirect('https://' + req.headers.host + req.url);
-    }
-});
-//dotenv path config
-dotenv.config({ 
-    path: path.resolve(__dirname, './env/.env') 
- })
 
-//importing routes
-const usersRoutes = require('./routes/usersRoutes')
-const profileRoutes = require('./routes/profileRoutes')
-const authRoutes = require('./routes/authRoutes')
-const noteRoutes = require('./routes/notesRoutes')
+
+// app.use(helpers.httpsRedirect);
+
 //Middlewares
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
-//configuracion para guardar la sessiones
-let options ={
-    host:process.env.DB_HOST ,
-    port: 3306,
-    user: process.env.DB_USER ,
-    password: process.env.DB_PASSWORD ,
-    database:process.env.DB_DATABASE,
-};
-app.use(cookieParser());
+
 app.use(session({
-    secret:"secret",
+    secret:process.env.SESSION_SECRET,
     resave:false,
     saveUninitialized:false,
-    store: new MySqlSessStore(options)
+    store: new MySqlSessStore(helpers.sessionConfig())
 }))
 
-
+//flash, passport an passport session init
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
@@ -73,40 +48,23 @@ app.use(passport.session())
      next()
    });
 
-//usando las rutas
-app.use('/',usersRoutes)
-app.use('/',authRoutes)
-app.use('/',profileRoutes)
-app.use('/',noteRoutes)
-
-//render routes
-app.get('/',(req, res)=>{
-    res.render('index')
-})
-app.get('/admin',async(req, res)=>{
-    await res.render('adminlogin')
-})
-app.get('/signup',(req, res)=>{
-    res.render('signup')
-})
-app.get('/login',(req, res)=>{
-    res.render('login')
-})
-app.get('/profile',(req, res)=>{
-    res.render('userprofile')
-})
-app.get('/mynotes',(req, res)=>{
-    res.render('mynotes');
-})
-app.get('/recover',(req, res)=>{
-    res.render('forgotPass')
-})
-
-
 //static files (css, html, js, media resources)
 app.use(express.static(path.join(__dirname,"public")))
-app.use((_, res) => res.redirect("/"));
+
+//importing and using routes
+app.use('/',require('./routes/usersRoutes'))
+app.use('/',require('./routes/authRoutes'))
+app.use('/',require('./routes/profileRoutes'))
+app.use('/',require('./routes/notesRoutes'))
+app.use('/',require('./routes/indexRoutes'))
+
+//unknown route redirect
+app.use(helpers.unknownPageRedirect);
+
+//setted port for deploy
 let port = process.env.PORT || 3000
 app.listen(port,()=>{
     console.log('Server started on port', port)
 })
+
+

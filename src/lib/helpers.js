@@ -15,5 +15,25 @@ helpers.validatePass = async(pass, savedPass)=>{
     }
 }
 
+helpers.httpsRedirect = (req, res, next)=>{
+    if(req.secure){
+        next();
+    }else{
+        res.redirect('https://' + req.headers.host + req.url);
+    }
+}
+helpers.unknownPageRedirect  = (_, res)=> res.redirect("/")
+
+helpers.sessionConfig = () =>{
+    let options = {
+        host:process.env.DB_HOST ,
+        port: 3306,
+        user: process.env.DB_USER ,
+        password: process.env.DB_PASSWORD ,
+        database:process.env.DB_DATABASE,
+    }
+    return options
+}
+
 module.exports = helpers
 

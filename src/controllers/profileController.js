@@ -2,7 +2,6 @@ const controller = {}
 const helpers = require('../lib/helpers')
 const Dbpool = require('../database')
 
-
 controller.GetNotes = async(req, res) =>{
     const notes = await Dbpool.query('select count(idnote) as num from notes where fkuser = ?',[req.user.iduser])
     console.log(notes[0].num)

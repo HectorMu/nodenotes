@@ -4,6 +4,10 @@ const auth = require('../lib/auth')
 
 const authController = require('../controllers/authcontroller')
 
+//render
+router.get('/signup', authController.renderSignUp)
+router.get('/login',authController.renderLogin)
+router.get('/recover',authController.rendeRecoverStart)
 
 //common auth actions
 router.post('/signup', authController.signUp)

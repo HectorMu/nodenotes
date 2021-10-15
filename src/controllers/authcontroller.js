@@ -6,6 +6,16 @@ const { urlencoded } = require('express')
 const nodeMailer = require('../lib/nodemailer')
 const passport = require('passport')
 
+authController.renderLogin = (req, res)=>{
+    res.render('login')
+}
+authController.renderSignUp = (req, res)=>{
+    res.render('signup')
+}
+authController.rendeRecoverStart = (req, res)=>{
+    res.render('forgotPass')
+}
+
 authController.signUp = passport.authenticate('signup',{
     successRedirect:'/profile',
     failureRedirect:'/signup',
@@ -29,16 +39,11 @@ authController.login = (req, res, next)=>{
         })
     })(req, res, next)
 }
-// authController.login = passport.authenticate('local.login',{
-//       successRedirect:'/profile',
-//       failureRedirect:'/login',
-//       failureFlash:true
-// })
+
 authController.logout = (req, res, next)=>{
     req.logOut();
     res.redirect('/')
 }
-
 
 //recover user password
 //this controller sends an email to a user to recover his password, user must be registered in the db
