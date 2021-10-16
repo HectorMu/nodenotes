@@ -34,13 +34,13 @@
     <!--Center column-->
     <div class="col col-sm-12 col-12 col-lg-8 col-md-8 " >
       <div class="container-fluid">
-        <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 text-center " > <%=actualNotes%></h1> 
+        <h1  class="bg-dark text-white font-weight-bolder pt-2 pb-2 text-center rounded" > <%=actualNotes%></h1> 
         <%if(!notes.length==0){%>
         <form id="search" action="/notesearch/" class="mt-2  mb-2  justify-content-center" method="post">
             <div class="input-group ">
                 <input name="search" class="form-control "  placeholder="Search note by title" required>
                 <div class="input-group-prepend">
-                    <button type="submit" class="btn btn-outline-dark "><i class="fas fa-search"></i></button>
+                    <button type="submit" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Click to search"><i class="fas fa-search"></i></button>
                 </div>
             </div>   
         </form>  
@@ -48,11 +48,11 @@
     <%}%>  
     <section id="usernotes" class="mb-5">
         <%if(notes.length>0){%>
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-md-2 row-cols-sm-2">        
+            <div class="row row-cols-1 no-gutters  row-cols-lg-3 row-cols-xl-3 row-cols-md-2 row-cols-sm-2">        
                     <% for (var i = 0;  i< notes.length; i++){%>
                         <div class="col mt-2">
                             <div class="container-fluid">
-                                <div class="card  border-<%=notes[i].importance%> h-100 w-100 " data-toggle="tooltip" data-placement="top" title="Click to edit">
+                                <div class="card  border-<%=notes[i].importance%> w-100 " data-toggle="tooltip" data-placement="top" title="Click to edit">
                                     <div class="card-header  d-flex justify-content-between bg-<%=notes[i].importance%> text-white text-center">
                                       <strong class=" d-inline-block text-center text-truncate" style="max-width:60%;"> <%=notes[i].title%></strong>
                                         <div >
@@ -98,7 +98,7 @@
     <!--Right column-->
     <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2 d-none d-lg-block  d-xl-block d-xl-none  ">
       <div class="container-fluid">
-        <h1 id="headernotes" class="bg-dark text-white  pt-2 pb-2 w-100 text-center"><i class="far fa-bell"></i></h1>
+        <h1  class="bg-dark text-white  pt-2 pb-2 w-100 text-center rounded"><i class="far fa-bell"></i></h1>
         <div class="mt-2">  
             <% if(error_msg.length>0){%>
                 <%-include('warnings/alert.ejs');-%>
