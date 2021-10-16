@@ -10,14 +10,16 @@
                 <div class="card-body">
                  <form action="/recover" method="POST">
                     <input class="form-control mb-2" type="email" placeholder="Email" name="email" id="email" required>
-                <button type="submit" class="btn mt-4 btn-outline-dark btn-block">Send</button>
+                    <small><p id="emailMessage"></p></small>
+                <button type="submit" id="send" class="btn mt-4 btn-outline-dark btn-block">Send</button>
                 </form>
                 </div>
-              </div>
+              </div> 
         </div>
     </div>
 </div>
 <link rel="stylesheet" type="text/css" href="/footerstyle.css">
+<script type="module" src="js/UserValidations/recoverRealtimeValidation.js"></script>
 <script>
 window.sr = ScrollReveal();
 sr.reveal('#recoverpassword-card',{

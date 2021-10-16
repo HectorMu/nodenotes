@@ -1,4 +1,5 @@
 const API = `https://nodenoteshm.herokuapp.com/api/`
+// const API = `http://localhost:3000/api/`
 
 
 export const getAllUsers = async()=>{
