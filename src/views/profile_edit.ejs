@@ -3,14 +3,14 @@
 <div  id="welcome" class="h1 text-center  bg-light pt-3 pb-3" >Edit Profile</div>
 
 <div class="container">
-    <a href="/profile" class=" mt-1 mb-2 btn btn-outline-dark btn-block">
+    <a href="/profile" class=" mt-1 mb-2 btn btn-outline-secondary btn-block">
         <i class="fas fa-arrow-left mr-2"></i>Back to profile
         </a>
     <div class="row">
         <div class="col col-12 col-sm-12 col-md-6 ">
             <div id="profile-card" class="card mb-3 " style="width: 100%;">
                 <ul class="list-group list-group-flush">
-                  <li id="profile-card-header" class="list-group-item bg-dark text-white text-center">My Profile</li>
+                  <li id="profile-card-header" class="list-group-item bg-custom-1 text-white text-center">My Profile</li>
                   <div id="profile-card-content" class="text-center">
                     <form action="/editprofile" method="POST">
                       <li class="list-group-item border-0 pb-0">Fullname: </li>
@@ -23,7 +23,7 @@
                   </div> 
                 </ul>
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-outline-dark btn-block">
+                  <button type="submit" class="btn btn-outline-secondary  btn-block">
                     Save Changes
                     </button>
                     
@@ -33,13 +33,13 @@
               </div>
         </div>  
         <div id="user-controls" class=" mb-5 col-12 col-sm-12 col-md-6">
-          <h1 class=" text-center bg-dark text-white pt-2 pb-2">Security</h1> 
-              <button  type="button" data-toggle="modal" data-target="#changepass" class=" mt-2 btn btn-outline-dark btn-block">
+          <h1 class=" text-center bg-custom-1 text-white pt-2 pb-2">Security</h1> 
+              <button  type="button" data-toggle="modal" data-target="#changepass" class=" mt-2 btn btn-outline-secondary  btn-block">
                 Change Password</button>
-                <h1 class=" text-center mt-4 bg-dark text-white pt-2 pb-2">Preferences</h1> 
+                <h1 class=" text-center mt-4 bg-custom-1 text-white pt-2 pb-2">Preferences</h1> 
                 <div class="form-group">       
                      <label for="Start Screen">Start Screen: <p style="display: inline; text-transform: uppercase;"><%=user.startscreen%></p>  </label>          
-                    <button  type="button" data-toggle="modal" data-target="#changescreen" class=" mt-2 btn btn-outline-dark btn-block">
+                    <button  type="button" data-toggle="modal" data-target="#changescreen" class=" mt-2 btn btn-outline-secondary  btn-block">
                         Change Start Screen</button>    
                     
             </div>    
@@ -75,8 +75,8 @@
                         <input type="password" id="confirm" name="confirm" placeholder="Confirm" class="form-control">
                     </div>   
                     <small><p id="match"></p></small>
-                    <button id="savepass" type="submit" class="btn btn-outline-dark btn-block">Change password</button>  
-                    <button type="button" data-dismiss="modal" class="btn mb-5 btn-outline-dark btn-block">Cancel</button>  
+                    <button id="savepass" type="submit" class="btn btn-outline-secondary  btn-block">Change password</button>  
+                    <button type="button" data-dismiss="modal" class="btn mb-5 btn-outline-secondary  btn-block">Cancel</button>  
                     <script type="module" src="/js/UserValidations/changepass.validation.js"></script>                    
                 </form>                
             </div>
@@ -107,8 +107,8 @@
                         <option value="mynotes">My notes</option>
                         <option value="profile">Profile</option>
                       </select> 
-                    <button  type="submit" class="btn btn-outline-dark btn-block">Save</button>  
-                    <button type="button" data-dismiss="modal" class="btn mb-5 btn-outline-dark btn-block">Cancel</button>                      
+                    <button  type="submit" class="btn btn-outline-secondary  btn-block">Save</button>  
+                    <button type="button" data-dismiss="modal" class="btn mb-5 btn-outline-secondary  btn-block">Cancel</button>                      
                 </form>                
             </div>
             </div>

@@ -28,15 +28,6 @@ html, body {
 #contact{
     background-color: whitesmoke;
 }
-.header-content-left img:hover{
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-
-.header-content-left img{
-    transform: scale(1.0);
-    transition: 0.5s;
-}
 #col-content-right{
     background-color: whitesmoke;
     border-radius: 10px;
@@ -49,15 +40,24 @@ html, body {
     transform: scale(1.0);
     transition: 0.5s;
 }
-.nav-link:hover{
-    color: white;
-    font-weight: bolder;
-    border-bottom:groove;
-    border-spacing: 5px;
-    border-width: thin;
-    border-collapse: separate;
-  
+.nav-link{
+    color:white;
 }
+.nav-link:hover{
+    font-weight: bolder;
+    color: white;
+    
+}
+.navbar-brand{
+    color: white;
+}
+
+.navbar-brand:hover{
+    font-weight: bolder;
+    color: white;
+}
+
+
 
 #welcome{
     margin-top: 70px;
@@ -122,7 +122,63 @@ html, body {
   .modal.fade {
     z-index: 999999999999 !important;
   }
+  .active{
+    font-weight: bolder;
+  }
 
   #usernotes .card-body:hover{
       cursor: pointer;
   }
+
+.btn {
+      border-radius: 20px;
+}
+
+.section-color-1{
+    background-color:#BCD4BE
+}
+.section-color-2{
+    background-color: #C7F6E4;
+    
+}
+.section-color-3{
+    background-color: #DEDAF2;
+}
+
+
+
+.bg-dark-1{
+    background-color:#4e4d4a;
+}
+
+.bg-custom-1{
+    background-color: #aabdc4;
+}
+.bg-custom-2{
+    background-color: #A7EBB8;
+}
+.bg-custom-3{
+    background-color: #696662;
+}
+
+
+.bg-whitesmoke{
+    background-color: whitesmoke;
+}
+.padding-0{
+    padding-right:0;
+    padding-left:0;
+}
+
+
+.circle{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background: #696662
+}
+
