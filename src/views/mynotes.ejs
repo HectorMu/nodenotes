@@ -1,14 +1,14 @@
 <%-include('index_partials/header.ejs');-%>
 <div class="row " style="margin-top: 80px;">
   <!--Left column-->
-    <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2  ">
+    <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2">
        <%if(!notes.length==0){%>
         <div class="container-fluid ">
-            <button id="newnote" type="button" class="btn position-fixed d-none d-lg-block  d-xl-block d-xl-none   justify-content-center  btn-outline-secondary  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
+            <button id="newnote" type="button"  class="btn position-fixed d-none d-lg-block  d-xl-block d-xl-none   justify-content-center  btn-secondary  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
                 <i class="fas fa-plus mr-2" ></i> New note
             </button>
             <div class="dropdown ">
-                <button class="btn btn-outline-secondary d-none d-lg-block position-fixed  d-xl-block d-xl-none  dropdown-toggle" type="button" id="dropdownSortButton" style="margin-top: 60px;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary d-none d-lg-block position-fixed  d-xl-block d-xl-none  dropdown-toggle" type="button" id="dropdownSortButton" style="margin-top: 60px;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    <small >Sort by:</small> 
                 </button>
                 <div class="dropdown-menu border-0 radius-0 text-center" aria-labelledby="dropdownSortButton">
@@ -34,7 +34,7 @@
     <!--Center column-->
     <div class="col col-sm-12 col-12 col-lg-8 col-md-8 " >
       <div class="container-fluid">
-        <h1  class="bg-custom-1 text-white font-weight-bolder pt-2 pb-2 text-center rounded" > <%=actualNotes%></h1> 
+        <h1  class="bg-custom-1  font-weight-bolder pt-2 pb-2 text-center rounded" > <%=actualNotes%></h1> 
         <%if(!notes.length==0){%>
         <form id="search" action="/notesearch/" class="mt-2  mb-2  justify-content-center" method="post">
             <div class="input-group ">
@@ -70,7 +70,7 @@
                         <%}%>                        
         </div>  
         <div class="dropdown">
-          <button class="btn btn-outline-secondary mt-2 d-xl-none d-lg-none  dropdown-toggle" type="button" id="SortButtonFloat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary mt-2 d-xl-none d-lg-none  dropdown-toggle" type="button" id="SortButtonFloat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <small >Sort by:</small> 
           </button>
           <div class="dropdown-menu border-0 radius-0 text-center" aria-labelledby="SortButtonFloat">

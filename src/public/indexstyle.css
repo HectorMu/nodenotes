@@ -41,7 +41,8 @@ html, body {
     transition: 0.5s;
 }
 .nav-link{
-    color:white;
+    color:black;
+
 }
 .nav-link:hover{
     font-weight: bolder;
@@ -49,7 +50,7 @@ html, body {
     
 }
 .navbar-brand{
-    color: white;
+    color: black;
 }
 
 .navbar-brand:hover{
@@ -124,6 +125,7 @@ html, body {
   }
   .active{
     font-weight: bolder;
+    color:white;
   }
 
   #usernotes .card-body:hover{
@@ -180,5 +182,12 @@ html, body {
     color: #fff;
     text-align: center;
     background: #696662
+}
+
+.modal-content{
+    border-radius: 0px !important;
+}
+.modal-header{
+    border-radius: 0px !important;
 }
 
