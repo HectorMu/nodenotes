@@ -1,5 +1,5 @@
 <%-include('index_partials/header.ejs');-%>
-<div class="row " style="margin-top: 80px;">
+<div class="row" style="margin-top: 80px;">
   <!--Left column-->
     <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2">
        <%if(!notes.length==0){%>
@@ -35,7 +35,7 @@
     <%}%>
     </div>
     <!--Center column-->
-    <div class="col col-sm-12 col-12 col-lg-8 col-md-8 " >
+    <div class="col col-sm-12 col-12 col-lg-8 col-md-8 vh-100 " >
       <div class="container-fluid">
         <h1  class="bg-custom-4  font-weight-bolder pt-2 pb-2 text-center text-white rounded" > <%=actualNotes%></h1> 
         <%if(!notes.length==0){%>
@@ -51,9 +51,9 @@
     <%}%>  
     <section id="usernotes" class="mb-5">
         <%if(notes.length>0){%>
-            <div class="row row-cols-1 no-gutters  row-cols-lg-3 row-cols-xl-3 row-cols-md-2 row-cols-sm-2">        
+            <div class="row  row-cols-1 no-gutters  row-cols-lg-3 row-cols-xl-3 row-cols-md-2 row-cols-sm-2">        
                     <% for (var i = 0;  i< notes.length; i++){%>
-                        <div class="col mt-2">
+                        <div class="col  mt-2">
                             <div class="container-fluid">
                                 <div class="card  border-<%=notes[i].importance%> w-100 " data-toggle="tooltip" data-placement="top" title="Click to edit">
                                     <div class="card-header  d-flex justify-content-between bg-<%=notes[i].importance%> text-white text-center">
@@ -90,7 +90,7 @@
         <div class="container-fluid">
             <div id="nonotes">
                 <h1 class="text-center mt-5">You dont have any notes yet.</h1>
-                <button type="button" class="btn btn-block   justify-content-center  btn-outline-secondary  btn-lg" style="font-size: 40px; font-weight: bold; padding-bottom: 22px;" data-toggle="modal" data-target="#addnote">
+                <button type="button" class="btn btn-block   justify-content-center  btn-primary  btn-lg" style="font-size: 40px; font-weight: bold; padding-bottom: 22px;" data-toggle="modal" data-target="#addnote">
                     <i class="fas fa-plus mr-2" ></i> ¡Write my first note!
                 </button>
             </div>
@@ -128,9 +128,10 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                          <a href="/deletenote/<%= notes[i].idnote %>/<%= notes[i].title %>" class="btn btn-primary  btn-block" >Delete</a>
-                          <button type="button" data-dismiss="modal" class="btn btn-secondary btn-block">Cancel</button>                      
-                                 
+                    <div class="d-flex justify-content-between d-inline">
+                      <a href="/deletenote/<%= notes[i].idnote %>/<%= notes[i].title %>" class="btn btn-primary  w-50 mx-1" >Delete</a>
+                      <button type="button" data-dismiss="modal" class="btn btn-secondary w-50">Cancel</button>   
+                    </div>               
                   </div>
                   </div>
                 </div>
@@ -180,9 +181,11 @@
                                 <option selected value="danger">Very Important</option>
                             <%} %>
                             
-                          </select> 
-                        <button type="submit" class="btn btn-outline-dark btn-block">Save Changes</button>  
-                        <button type="button" data-dismiss="modal" class="btn btn-outline-dark btn-block">Cancel</button>                    
+                          </select>                       
+                          <div class="d-flex justify-content-between d-inline mt-4">
+                            <button type="submit" class="btn btn-primary w-50 mx-1">Save Changes</button> 
+                            <button type="button" data-dismiss="modal" class="btn btn-secondary w-50 ">Cancel</button>  
+                          </div>                  
                     </form>                       
                   </div>
                   </div>
@@ -211,9 +214,8 @@ sr.reveal('#dropdownSortButton',{
     distance: '10px'
 });
 </script>
-
-<div style="padding-top: 100vh;">
-  <%-include('index_partials/footer.ejs');-%>
-</div>
-
 <%-include('notesControls/addmodal.ejs');-%>
+<%-include('index_partials/footer.ejs');-%>
+
+
+

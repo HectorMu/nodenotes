@@ -1,24 +1,37 @@
 <%- include('index_partials/header.ejs')-%>
-<div class="container" style="margin-top: 100px;">
-    <% if(error_msg.length>0){%>
-        <%-include('warnings/alert.ejs');-%>
-      <%}%>
-    <div class="row">
-        <div class="col col-md-6 col-lg-6 mx-auto">
+<div class="row mt-5 vh-100 ">
+    <div class="col col-lg-4 col-md-4 bg-custom-1 d-sm-none d-none d-lg-block d-md-none d-xl-block">
+      <div class=" d-flex flex-column gap-2 text-center h-100 justify-content-center rounded ">
+        <h1 class="display-4 my-4 font-weight-bolder">Ooops!</h1>
+        <h1 class="display-5 my-4">¿You forgot your password?, No problem you can't recover it using your email.</h1>
+      </div>
+    </div>
+      <div class="col col-lg-5 col-xl-4 col-md-8 col-12 mx-auto my-auto">
+        <div class="container">
+          <% if(error_msg.length>0){%>
+            <%-include('warnings/alert.ejs');-%>
+          <%}%>    
             <div id="recoverpassword-card" class="card">
-                <h5 class="card-header bg-dark text-center text-white" style="font-weight: bold; font-size: 40px;">Your email address account</h5>
+                <h5 class="card-header bg-custom-4 text-center text-white" style="font-weight: bold; font-size: 30px;">Email address account</h5>
                 <div class="card-body">
+                    <div class="card-text text-center d-lg-none d-xl-none">
+                        ¿You forgot your password?, No problem, recover it with your email.
+                      </div>
                  <form action="/recover" method="POST">
-                    <input class="form-control mb-2" type="email" placeholder="Email" name="email" id="email" required>
+                    <div class="input-group input-group-lg mb-3 mt-2">
+                        <input class="form-control mb-2" type="email" placeholder="Email" name="email" id="email" required>
+                    </div>
+                   
                     <small><p id="emailMessage"></p></small>
-                <button type="submit" id="send" class="btn mt-4 btn-outline-dark btn-block">Send</button>
+                <button type="submit" id="send" class="btn mt-4 btn-primary btn-block btn-lg">Send</button>
                 </form>
                 </div>
               </div> 
         </div>
     </div>
-</div>
-<link rel="stylesheet" type="text/css" href="/footerstyle.css">
+  </div>
+
+
 <script type="module" src="js/UserValidations/recoverRealtimeValidation.js"></script>
 <script>
 window.sr = ScrollReveal();
