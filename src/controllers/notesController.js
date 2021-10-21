@@ -52,8 +52,8 @@ controller.listNormalNotes = async (req, res)=>{
 
 controller.saveNote = async(req, res)=>{
     const {title,content,importance} = req.body
-    let dateObject = new Date()
-    const createdat = (dateObject.getDate()+"/"+"0"+dateObject.getMonth()+"/"+dateObject.getFullYear())
+    let today = new Date()
+    const createdat = today.toLocaleDateString("en-US");
     const fkuser = req.user.iduser
     const newNote = {
         title,

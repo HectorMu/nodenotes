@@ -3,7 +3,7 @@
 <div  id="welcome" class="h1 text-center  bg-light pt-3 pb-3" >Edit Profile</div>
 
 <div class="container">
-    <a href="/profile" class=" mt-1 mb-2 btn btn-secondary btn-lg btn-block">
+    <a href="/profile" class=" mt-1 mb-2 btn btn-custom-1 btn-lg btn-block">
         <i class="fas fa-arrow-left mr-2"></i>Back to profile
         </a>
     <div class="row">
@@ -23,7 +23,7 @@
                   </div> 
                 </ul>
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-secondary   btn-block">
+                  <button type="submit" class="btn btn-custom-1   btn-block font-weight-bolder">
                     Save Changes
                     </button>
                     
@@ -35,7 +35,7 @@
         <div id="user-controls" class=" mb-5 col-12 col-sm-12 col-md-6">
           <div class="bg-whitesmoke  rounded">
             <h1 class=" text-center bg-custom-1 font-weight-bolder rounded py-2">Security</h1> 
-            <button  type="button" data-toggle="modal" data-target="#changepass" class=" mt-2 btn btn-secondary   btn-block">
+            <button  type="button" data-toggle="modal" data-target="#changepass" class=" mt-2 btn btn-custom-1   btn-block">
               Change Password</button>
 
           </div>
@@ -45,7 +45,7 @@
                        <label for="Start Screen">Start Screen: <p style="display: inline; text-transform: uppercase;"><%=user.startscreen%></p>  </label>          
                       
                 </div>  
-                <button  type="button" data-toggle="modal" data-target="#changescreen" class="btn btn-secondary btn-block">
+                <button  type="button" data-toggle="modal" data-target="#changescreen" class="btn btn-custom-1 btn-block">
                   Change Start Screen</button>    
             </div>    
         </div>   
@@ -76,7 +76,7 @@
                         <input type="password" id="confirm" name="confirm" placeholder="Confirm" class="form-control">
                     </div>   
                     <small><p id="match"></p></small>
-                    <button id="savepass" type="submit" class="btn btn-secondary  btn-block">Change password</button>  
+                    <button id="savepass" type="submit" class="btn btn-primary  btn-block">Change password</button>  
                     <button type="button" data-dismiss="modal" class="btn btn-secondary  btn-block">Cancel</button>  
                       
                 </form>                
@@ -104,7 +104,7 @@
                         <option value="mynotes">My notes</option>
                         <option value="profile">Profile</option>
                       </select> 
-                    <button  type="submit" class="btn btn-secondary  btn-block">Save</button>  
+                    <button  type="submit" class="btn btn-primary  btn-block">Save</button>  
                     <button type="button" data-dismiss="modal" class="btn btn-secondary  btn-block">Cancel</button>                      
                 </form>                
             </div>

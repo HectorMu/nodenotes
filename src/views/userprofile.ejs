@@ -8,10 +8,10 @@
     <%-include('warnings/success.ejs');-%>
   <%}%>
     <div class="row">
-        <div class="col">
+        <div class="col col-12 col-sm-12 col-md-6 col-lg-7 col-xl-7">
             <div id="profile-card" class="card " style="width: 100%;">
                 <ul class="list-group list-group-flush">
-                  <li id="profile-card-header" class="list-group-item bg-custom-1 font-weight-bolder  text-center">My Profile</li>
+                  <li id="profile-card-header" class="list-group-item bg-custom-3 font-weight-bolder text-white  text-center">My Profile</li>
                   <div id="profile-card-content" class="text-center">
                     <li class="list-group-item border-0">Fullname: </li>
                     <li class="list-group-item pt-0"><%=user.firstname%> <%=user.lastname%></li>
@@ -23,19 +23,19 @@
                 </ul>
               </div>
         </div>  
-        <div id="user-controls" class="col">
+        <div id="user-controls" class="col col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5">
           <%if(user.privileges == "Admin"){%>
             <h1 class=" text-center bg-dark text-white pt-2 pb-2">Current admin profile</h1>
-            <a href="/users" class=" mt-2 btn mb-5 btn-secondary btn-block">
+            <a href="/users" class=" mt-2 btn mb-5 btn-custom-1 btn-block">
               <i class="fas fa-users"></i> See users list</a>
           <%}%>
-          <h1 class=" text-center bg-custom-1 font-weight-bold py-2 rounded">Options</h1>
-            <a  href="/mynotes" class="mt-2 mb-2 btn btn-secondary btn-lg btn-block">
+          <h1 class=" text-center bg-custom-3 text-white font-weight-bold py-2 rounded">Options</h1>
+            <a  href="/mynotes" style="font-weight:bolder;" class="mt-2 mb-2 btn btn-custom-1 btn-lg btn-block">
               <i class="far fa-sticky-note"></i> Go to my notes</a>
-              <a href="/editprofile/<%=user.iduser%>" class="btn  btn-secondary btn-block btn-lg">
+              <a href="/editprofile/<%=user.iduser%>" style="font-weight:bolder;"  class="btn btn-custom-1 btn-block btn-lg">
                 <i class="fas fa-cog"></i> Profile settings
                 </a>  
-              <a href="/logout" class=" mt-2 mb-5 btn btn-secondary btn-lg btn-block">
+              <a href="/logout" style="font-weight:bolder;" class=" mt-2 mb-5 btn btn-custom-1 btn-lg btn-block">
                 <i class="fas fa-sign-out-alt"></i> Log Out</a>   
              
         </div>
@@ -61,7 +61,7 @@ sr.reveal('#user-controls',{
     distance:'100px'
 });
 </script>
-<div style="margin-top: 31vh;">
+<div style="margin-top: 100vh;">
   <%-include('index_partials/footer.ejs');-%>
 </div>
 

@@ -17,7 +17,7 @@ app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 app.enable('trust proxy')
 
-app.use(helpers.httpsRedirect);
+// app.use(helpers.httpsRedirect);
 
 //Middlewares
 app.use(morgan('dev'))

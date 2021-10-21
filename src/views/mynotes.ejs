@@ -4,14 +4,14 @@
     <div class="col col-12 col-sm-12 col-lg-2 col-md-3 col-xl-2">
        <%if(!notes.length==0){%>
         <div class="container-fluid ">
-            <button id="newnote" type="button"  class="btn position-fixed d-none d-lg-block  d-xl-block d-xl-none   justify-content-center  btn-secondary  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
+            <button id="newnote" type="button"  class="btn position-fixed d-none d-lg-block  d-xl-block d-xl-none   justify-content-center  btn-primary  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px;" data-toggle="modal" data-target="#addnote">
                 <i class="fas fa-plus mr-2" ></i> New note
             </button>
             <!-- <button id="trybeta" type="button"  class="btn position-fixed d-none d-lg-block  d-xl-block d-xl-none   justify-content-center  btn-secondary  btn-lg" style="font-size: 20px; font-weight: bold; padding-bottom: 10px; margin-top: 110px;">
               Try beta
           </button> -->
             <div class="dropdown ">
-                <button class="btn btn-secondary d-none d-lg-block position-fixed  d-xl-block d-xl-none  dropdown-toggle" type="button" id="dropdownSortButton" style="margin-top: 60px;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-primary d-none d-lg-block position-fixed  d-xl-block d-xl-none  dropdown-toggle" type="button" id="dropdownSortButton" style="margin-top: 60px;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    <small >Sort by:</small> 
                 </button>
                 <div class="dropdown-menu border-0 radius-0 text-center" aria-labelledby="dropdownSortButton">
@@ -37,7 +37,7 @@
     <!--Center column-->
     <div class="col col-sm-12 col-12 col-lg-8 col-md-8 " >
       <div class="container-fluid">
-        <h1  class="bg-custom-1  font-weight-bolder pt-2 pb-2 text-center rounded" > <%=actualNotes%></h1> 
+        <h1  class="bg-custom-4  font-weight-bolder pt-2 pb-2 text-center text-white rounded" > <%=actualNotes%></h1> 
         <%if(!notes.length==0){%>
         <form id="search" action="/notesearch/" class="mt-2  mb-2  justify-content-center" method="post">
             <div class="input-group ">
@@ -59,7 +59,7 @@
                                     <div class="card-header  d-flex justify-content-between bg-<%=notes[i].importance%> text-white text-center">
                                       <strong class=" d-inline-block text-center text-truncate" style="max-width:60%;"> <%=notes[i].title%></strong>
                                         <div >
-                                            <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-secondary btn-sm ml-1 mb-1 " style="border:0px"><i class="fas fa-pen"></i></button>
+                                            <button type="button" data-toggle="modal" data-target="#editnote<%= notes[i].idnote %>" class="btn btn-primary btn-sm ml-1 mb-1 " style="border:0px"><i class="fas fa-pen"></i></button>
                                             <button type="button" data-toggle="modal" data-target="#deletenote<%= notes[i].idnote %>"  style="background-color:brown; border: 0px;" class="btn btn-sm btn-danger mb-1"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
                         <%}%>                        
         </div>  
         <div class="dropdown">
-          <button class="btn btn-secondary mt-2 d-xl-none d-lg-none  dropdown-toggle" type="button" id="SortButtonFloat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-primary mt-2 d-xl-none d-lg-none  dropdown-toggle" type="button" id="SortButtonFloat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <small >Sort by:</small> 
           </button>
           <div class="dropdown-menu border-0 radius-0 text-center" aria-labelledby="SortButtonFloat">
@@ -83,7 +83,7 @@
             <a class="dropdown-item bg-danger pt-1 border-0 font-weight-bold text-white" href="/mynotes/veryimportant">Very Important Notes</a>
           </div>
         </div>
-        <button type="button" data-toggle="modal" data-target="#addnote" class="kc_fab_main_btn d-xl-none d-lg-none">+</button>
+        <button type="button" data-toggle="modal" data-target="#addnote" class="kc_fab_main_btn btn-primary d-xl-none d-lg-none">+</button>
  
     </section>
     <%}else{%>
@@ -118,7 +118,7 @@
     <!--Delete note modal-->
     <div>
       <div class="container-fluid">
-          <div id="deletenote<%= notes[i].idnote %>" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
+          <div id="deletenote<%= notes[i].idnote %>" class="modal fade zoom-in modal-fullscreen-sm-down" tabindex="-1">
               <div class="modal-dialog modal-md">
                 <div class="modal-content ">
                   <div class="modal-header bg-dark">
@@ -128,8 +128,8 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                          <a href="/deletenote/<%= notes[i].idnote %>/<%= notes[i].title %>" class="btn btn-outline-danger  btn-block" >Delete</a>
-                          <button type="button" data-dismiss="modal" class="btn btn-outline-dark btn-block">Cancel</button>                      
+                          <a href="/deletenote/<%= notes[i].idnote %>/<%= notes[i].title %>" class="btn btn-primary  btn-block" >Delete</a>
+                          <button type="button" data-dismiss="modal" class="btn btn-secondary btn-block">Cancel</button>                      
                                  
                   </div>
                   </div>
@@ -144,7 +144,7 @@
     <!--edit note modal-->
     <div>
       <div class="container-fluid">
-          <div id="editnote<%= notes[i].idnote %>" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
+          <div id="editnote<%= notes[i].idnote %>" class="modal fade zoom-in modal-fullscreen-sm-down" tabindex="-1">
               <div class="modal-dialog modal-md">
                 <div class="modal-content ">
                   <div class="modal-header bg-dark">
@@ -161,7 +161,7 @@
                         </div>  
                         <div class="form-group">
                             <label for="content">Note content:</label>
-                            <textarea class="form-control" value="<%=notes[i].content%>" name="content" id="content" cols="30" rows="8"><%=notes[i].content%></textarea>
+                            <textarea class="form-control" value="<%=notes[i].content%>" name="content" id="content" cols="30" rows="6"><%=notes[i].content%></textarea>
                         </div>  
                         <select name="importance"  value="<%=notes[i].importance%>" class="form-control mb-2" required>               
                             <%if(notes[i].importance=='dark'){ %>

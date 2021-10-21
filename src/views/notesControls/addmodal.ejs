@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div id="addnote" class="modal fade modal-fullscreen-sm-down" tabindex="-1">
+    <div id="addnote" class="modal fade zoom-in modal-fullscreen-sm-down" tabindex="-1">
         <div class="modal-dialog modal-md">
           <div class="modal-content ">
             <div class="modal-header bg-dark">
@@ -16,7 +16,7 @@
                     </div>  
                     <div class="form-group">
                         <label for="content">Note content:</label>
-                        <textarea class="form-control" name="content" id="content " cols="30" rows="8" required></textarea>
+                        <textarea class="form-control" name="content" id="content " cols="30" rows="6" required></textarea>
                     </div>  
                     <label for="">Importance:</label>
                     <select name="importance" class="form-control mb-2" required>               
@@ -24,8 +24,8 @@
                         <option value="warning">Important</option>
                         <option value="danger">Very Important</option>
                       </select> 
-                    <button type="submit" class="btn btn-outline-dark btn-block">Save note</button>  
-                    <button type="button" data-dismiss="modal" class="btn btn-outline-dark btn-block">Cancel</button>                      
+                    <button type="submit" class="btn btn-primary btn-block">Save note</button>  
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary btn-block">Cancel</button>                      
                 </form>                
             </div>
             </div>

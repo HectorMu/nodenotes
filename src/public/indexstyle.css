@@ -11,11 +11,12 @@ html, body {
 
 .navbar-brand{
     font-family: 'Comfortaa', cursive;
-
+    font-weight: bolder;
     font-size: 25px;
 }
 .navbar-nav .nav-item a{
     font-family: 'Comfortaa', cursive;
+    font-weight: bolder;
     font-size: 17px;
 }
 
@@ -88,13 +89,13 @@ html, body {
 .kc_fab_main_btn {
     position: fixed;
     z-index: 99999;
-    background-color: #292b2c;
+    background-color: #007bff;
     width: 60px;
     height: 60px;
     right: 8%;
     bottom: 9%;
     border-radius: 100%;
-    background: #292b2c;
+    background: #007bff;
     border: none;
     outline: none;
     color: #FFF;
@@ -156,13 +157,21 @@ html, body {
 .bg-custom-1{
     background-color: #aabdc4;
 }
+.btn-custom-1{
+    background-color:#aabdc4;
+}
+.btn-custom-1:hover{
+    background-color:#cfe5ec;
+}
 .bg-custom-2{
     background-color: #A7EBB8;
 }
 .bg-custom-3{
     background-color: #696662;
 }
-
+.bg-custom-4{
+    background-color: #3c5c72;
+}
 
 .bg-whitesmoke{
     background-color: whitesmoke;
@@ -171,7 +180,6 @@ html, body {
     padding-right:0;
     padding-left:0;
 }
-
 
 .circle{
     width: 50px;
@@ -190,4 +198,56 @@ html, body {
 .modal-header{
     border-radius: 0px !important;
 }
+
+
+/* Custom modal animations */
+.modal.fade .modal-dialog{
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+  }
+  .modal.fade .modal-dialog{
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+  }
+  
+  .zoom-in {
+    transform: scale(0)!important;
+    opacity: 0;
+    -webkit-transition: 0.3s all 0s;
+    -moz-transition: 0.3s all 0s;
+    -ms-transition: 0.3s all 0s;
+    -o-transition: 0.3s all 0s;
+    transition: 0.3s all 0s;
+    display: block !important;
+  }
+  .zoom-in.show {
+    opacity: 1;
+    transform: scale(1)!important;
+    transform:none;
+  }
+
+
+
+  @media (min-width:576px) {
+    #home{
+        padding-bottom: 0px;
+    }
+}
+
+@media (min-width:1200px) {
+    #home{
+        padding-bottom: 130px;
+    }
+}
+
+
+
+
+
+ 
+ 
+
+
+
+
 
