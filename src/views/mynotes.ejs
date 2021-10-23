@@ -41,7 +41,7 @@
         <%if(!notes.length==0){%>
         <form id="search" action="/notesearch/" class="mt-2  mb-2  justify-content-center" method="post">
             <div class="input-group ">
-                <input name="search" class="form-control "  placeholder="Search note by title" required>
+                <input id="txtSearch" name="search" class="form-control"  placeholder="Search note by title" required>
                 <div class="input-group-prepend">
                     <button type="submit" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Click to search"><i class="fas fa-search"></i></button>
                 </div>
@@ -53,7 +53,7 @@
         <%if(notes.length>0){%>
             <div class="row  row-cols-1 no-gutters  row-cols-lg-3 row-cols-xl-3 row-cols-md-2 row-cols-sm-2">        
                     <% for (var i = 0;  i< notes.length; i++){%>
-                        <div class="col  mt-2">
+                        <div class="col card-col  mt-2">
                             <div class="container-fluid">
                                 <div class="card  border-<%=notes[i].importance%> w-100 " data-toggle="tooltip" data-placement="top" title="Click to edit">
                                     <div class="card-header  d-flex justify-content-between bg-<%=notes[i].importance%> text-white text-center">
@@ -214,11 +214,8 @@ sr.reveal('#dropdownSortButton',{
     distance: '10px'
 });
 </script>
+<script src="js/liveSearch.js"></script>
 <%-include('notesControls/addmodal.ejs');-%>
 <div style="margin-top: 100vh;">
   <%-include('index_partials/footer.ejs');-%>
 </div>
-
-
-
-
