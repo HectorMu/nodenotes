@@ -4,15 +4,10 @@ const controller = {}
 
 controller.getAllRegisteredUsers = async(req, res) =>{
     try {
-        const validLocations = ['/signup','/recover']
-        const location = req.headers.location
-        if(location != undefined){
-            if(location.includes(validLocations)){
-                const users = await connection.query('select email from users')
-                res.json(users);
-            }else{
-                res.json({error:"Unauthorized"})
-            }  
+        const validLocation = req.headers.location
+        if(validLocation != undefined){
+            const users = await connection.query('select email from users')
+            res.json(users);
         }else{
             res.json({error:"Unauthorized"})
         }
