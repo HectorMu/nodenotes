@@ -3,7 +3,11 @@ const API = `https://nodenoteshm.herokuapp.com/api/`
 
 
 export const getAllUsers = async()=>{
-    const response = await fetch(`${API}getUsers`)
+    const response = await fetch(`${API}getUsers`,{
+        headers:{
+            "location":window.location.href
+        }
+    })
     const users = await response.json();
     return users;
 }
