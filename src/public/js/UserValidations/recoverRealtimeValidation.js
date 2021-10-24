@@ -1,4 +1,4 @@
-import { getAllUsers } from "../Api/Api.js";
+import { verifyEmail } from "../Api/Api.js";
 
 const emailInput = document.getElementById('email')
 const message = document.getElementById('emailMessage')
@@ -12,8 +12,8 @@ emailInput.addEventListener('keyup',async ()=>{
         emailInput.classList.remove('is-valid')
     }else{
         if(emailPattern.test(emailInput.value)){
-            const result = await verifiyEmail(emailInput.value)
-              if(result === true){
+            const result = await verifyEmail(emailInput.value)
+              if(result.exists === true){
                 emailInput.classList.remove('is-invalid')
                 emailInput.classList.add('is-valid')
                 message.innerHTML=""
@@ -32,15 +32,4 @@ emailInput.addEventListener('keyup',async ()=>{
             }
     }
 })
-
-const verifiyEmail = async (email)=>{
-    const mails = await getAllUsers();
-    let status = false;
-    for (let i = 0; i < mails.length; i++) {
-        if(mails[i].email.includes(email)){
-            status = true;
-            return status;
-        }
-    }
-}
 
