@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
- 
-router.get('/api/getUsers', require('../controllers/apiController').getAllRegisteredUsers)
+
+router.get('/api/verifyEmail/:email', require('../controllers/apiController').verifyExistingEmail)
 
 module.exports = router
