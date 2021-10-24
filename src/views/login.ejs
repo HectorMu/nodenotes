@@ -16,10 +16,10 @@
       <div class="container">
         <% if(error_msg.length>0){%>
           <%-include('warnings/alert.ejs');-%>
-            <%}%>
-              <% if(success_msg.length>0){%>
-                <%-include('warnings/success.ejs');-%>
-                  <%}%>
+        <%}%>
+        <% if(success_msg.length>0){%>
+          <%-include('warnings/success.ejs');-%>
+        <%}%>
                     <div id="login-card" class="card h-100 w-100">
                       <h5 class="card-header  bg-custom-4 text-center text-white"
                         style="font-weight: bold; font-size: 40px;">Log In</h5>
