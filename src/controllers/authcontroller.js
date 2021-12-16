@@ -25,7 +25,6 @@ authController.signUp = passport.authenticate('signup',{
 //this controller determines if there's is an user and then redirect that user to
 //a route saved in the database, of this way user can choose what view will pop up at login
 //this can be use too redirect users depending his roles in the system
-//time to make and understand this: 10 hours since 4 pm to 2 am
 authController.login = (req, res, next)=>{
     passport.authenticate('local.login',(err, user)=>{
         if(!user){
@@ -34,7 +33,7 @@ authController.login = (req, res, next)=>{
         req.logIn(user,(err)=>{
             let hour = 18000000
             req.session.cookie.expires = new Date(Date.now()+hour)
-            req.session.cookie.maxAge = hour
+            req.session.cookie.maxAge = hour //10 hours
             return res.redirect('/'+req.user.startscreen)
         })
     })(req, res, next)

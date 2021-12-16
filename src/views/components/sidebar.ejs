@@ -1,0 +1,57 @@
+<div id="sidebar" class="sidebar bg-custom-1">
+    <button id="sb-close" class="btn btn-primary mt-5">Close</button>
+    <ul class="navbar-nav mr-auto text-center">
+        <% if(user){%>
+            <%if(user.privileges=='user'){%>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/mynotes">My notes</a>
+               </li>
+            <%}%>
+            <%if(user.privileges=='Admin'){%>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/mynotes">My notes</a>
+               </li>
+               <li class="nav-item ">
+                <a class="nav-link" href="/users">Users</a>
+           </li>
+            <%}%>
+            
+            <%} else{%>
+                <div class="navbar-nav mr-auto text-center ml-auto" id="NotLogged">
+                   <li class="nav-item">
+                        <a class="nav-link" href="#howtostart">How to start</a>
+                   </li>
+                   <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+               </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="#contact">Contact</a>
+                  </li>
+                </div>
+    <%}%>
+    </ul> 
+    <ul class="navbar-nav ml-auto text-center mt-5">
+        <% if(user){%>
+          <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="far fa-user"></i> 
+                  <% SplittedUser =  user.firstname.split(" ")%>
+                  <small><%=SplittedUser[0]%></small> 
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/logout">Log Out<i class="fas fa-sign-out-alt ml-2"></i></a>
+              </div>
+            </div>
+        <%} else{%>
+         
+         <li class="nav-item">
+          <a class="btn btn-primary" href="/signup">Sign up</a>
+          <li class="nav-item ">
+              <a class="nav-link" href="/login">Log in</a>
+         </li>
+     </li>
+        <% }%>
+      </ul>
+
+</div>

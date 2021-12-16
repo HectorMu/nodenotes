@@ -2,7 +2,16 @@ const connection = require('../database')
 const controller = {}
 
 
-
+controller.getUserNotes = async (req, res)=>{
+    try {
+        const notes = await connection.query("select * from notes where fkuser = ?",[req.user.iduser])
+        console.log(notes)
+        res.json(notes);
+    } catch (error) {
+        console.log(error)
+    }
+   
+}
 controller.verifyExistingEmail = async (req, res)=>{
     const {email} = req.params
     try {

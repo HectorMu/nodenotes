@@ -1,56 +1,91 @@
 <%- include('index_partials/header.ejs')-%>
-  <div class="row mt-5 vh-100 ">
-    <div class="col col-lg-4 col-md-4 bg-custom-1 d-sm-none d-none d-lg-block d-md-none d-xl-block">
-      <div class=" d-flex flex-column gap-2 text-center h-100 justify-content-center rounded ">
-        <h1 class="display-4 my-4">Welcome back!</h1>
-        <h1 class="display-5 my-4">Log in into your account to access to your notes.</h1>
-        <div class="mt-5">
-          <div class="container">
-            <p style="font-size: 22px; font-weight: bolder;">¿You don't have an account yet?</p>
-            <a href="/signup" class="btn btn-primary btn-lg btn-block">Sign up now</a>
-          </div>
+<div class="row mt-5 vh-100">
+  <div
+    class="
+      col col-lg-4 col-md-4
+      bg-custom-1
+      d-sm-none d-none d-lg-block d-md-none d-xl-block
+    "
+  >
+    <div
+      class="
+        d-flex
+        flex-column
+        gap-2
+        text-center
+        h-100
+        justify-content-center
+        rounded
+      "
+    >
+      <h1 class="display-4 my-4">Welcome back!</h1>
+      <h1 class="display-5 my-4">
+        Log in into your account to access to your notes.
+      </h1>
+      <div class="mt-5">
+        <div class="container">
+          <p style="font-size: 22px; font-weight: bolder">
+            ¿You don't have an account yet?
+          </p>
+          <a href="/signup" class="btn btn-primary btn-lg btn-block"
+            >Sign up now</a
+          >
         </div>
       </div>
     </div>
-    <div class="col col-lg-5 col-xl-4 col-md-8 col-12 mx-auto my-auto">
-      <div class="container">
-        <% if(error_msg.length>0){%>
-          <%-include('warnings/alert.ejs');-%>
-        <%}%>
-        <% if(success_msg.length>0){%>
-          <%-include('warnings/success.ejs');-%>
-        <%}%>
-                    <div id="login-card" class="card h-100 w-100">
-                      <h5 class="card-header  bg-custom-4 text-center text-white"
-                        style="font-weight: bold; font-size: 40px;">Log In</h5>
-                      <div class="card-body">
-                        <div class="card-text text-center d-lg-none d-xl-none">
-                          Welcome back, log in to access your notes
-                        </div>
-                        <form action="/login" method="POST">
-                          <div class="input-group input-group-lg mb-3 mt-2">
-                            <input class="form-control" type="email" placeholder="Email" name="email" id="email"
-                              required>
-                          </div>
-                          <div class="input-group input-group-lg">
-                            <input class="form-control" type="password" placeholder="Password" name="pass" id="pass"
-                              required>
-                          </div>
-                          <small> <a href="/recover">Recover my password</a> </small>
-                          <button type="submit" class="btn mt-4 btn-primary btn-lg btn-block">Send</button>
-                        </form>
-                      </div>
-                    </div>
+  </div>
+  <div class="col col-lg-5 col-xl-4 col-md-8 col-12 mx-auto my-auto">
+    <div class="container">
+      <% if(error_msg.length>0){%> <%-include('warnings/alert.ejs');-%> <%}%> <%
+      if(success_msg.length>0){%> <%-include('warnings/success.ejs');-%> <%}%>
+      <div id="login-card" class="card h-100 w-100">
+        <h5
+          class="card-header bg-custom-4 text-center text-white"
+          style="font-weight: bold; font-size: 40px"
+        >
+          Log In
+        </h5>
+        <div class="card-body">
+          <div class="card-text text-center d-lg-none d-xl-none">
+            Welcome back, log in to access your notes
+          </div>
+          <form action="/login" method="POST">
+            <div class="input-group input-group-lg mb-3 mt-2">
+              <input
+                class="form-control"
+                type="email"
+                placeholder="Email"
+                name="email"
+                id="email"
+                required
+              />
+            </div>
+            <div class="input-group input-group-lg">
+              <input
+                class="form-control"
+                type="password"
+                placeholder="Password"
+                name="pass"
+                id="pass"
+                required
+              />
+            </div>
+            <small> <a href="/recover">Recover my password</a> </small>
+            <button type="submit" class="btn mt-4 btn-primary btn-lg btn-block">
+              Send
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-  <%-include('index_partials/footer.ejs');-%>
-    <script>
-      window.sr = ScrollReveal();
-      sr.reveal('#login-card', {
-        duration: 1500,
-        origin: 'right',
-        distance: '100px'
-      });
-
-    </script>
+</div>
+<%-include('index_partials/footer.ejs');-%>
+<script>
+  window.sr = ScrollReveal();
+  sr.reveal("#login-card", {
+    duration: 1500,
+    origin: "right",
+    distance: "100px",
+  });
+</script>

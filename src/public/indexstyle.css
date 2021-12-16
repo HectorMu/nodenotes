@@ -226,8 +226,26 @@ html, body {
     transform:none;
   }
 
+  .disable-scroll{
+    position:top;
+    height: 100vh;
+  }
 
+  .sidebar{
+      display: block;
+      position: fixed;
+      z-index: 10;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.97; 
+      transition: transform 0.5s ease-in-out;
+      transform: translateX(-100vw);
+  }
 
+  .sidebar.show{
+    transform: translateX(0vw);
+  }
+  
   @media (min-width:576px) {
     #home{
         padding-bottom: 0px;
